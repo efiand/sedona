@@ -1,0 +1,29 @@
+{
+  "name": "study-tempate",
+  "private": true,
+  "scripts": {
+    "start": "gulp",
+    "fix": "gulp fix"
+  },
+  "precommit": "fix",
+  "browserslist": [
+    "last 1 version",
+    "not dead",
+    "not IE 11"
+  ],
+  "devDependencies": {
+    "autoprefixer": "10.4.2",
+    "browser-sync": "2.27.7",
+    "gulp": "4.0.2",
+    "gulp-imagemin": "7.1.0",
+    "gulp-postcss": "9.0.1",
+    "gulp-posthtml": "^3.0.5",
+    "gulp-prettier": "^4.0.0",
+    "nunjucks": "3.2.3",
+    "postcss-easy-import": "3.0.0",
+    "postcss-reporter": "7.0.5",
+    "posthtml-w3c": "0.9.1",
+    "precommit": "1.2.2",
+    "stylelint": "13.13.1"
+  }
+}
