@@ -1,0 +1,25 @@
+{% extends "_layout.html" %}
+
+{% set page = "hotels" %}
+
+{% block title %}Гостиницы{% endblock %}
+
+{% block main %}
+  <section class="filter">
+    <h2 class="filter-heading">Гостиницы Седоны</h2>
+
+    <ul class="filter-breadcrumbs breadcrumbs">
+      <li class="breadcrumbs-item">
+        <a class="breadcrumbs-link breadcrumbs-link-root" href="index.html">
+          <span class="visually-hidden">Главная</span>
+        </a>
+      </li>
+      <li class="breadcrumbs-item">
+        <a class="breadcrumbs-link" href="hotels.html">Гостиницы</a>
+      </li>
+    </ul>
+
+    <form class="filter-form" action="https://echo.htmlacademy.ru">
+    </form>
+  </section>
+{% endblock %}

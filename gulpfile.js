@@ -3,6 +3,7 @@ const nunjucks = require('nunjucks');
 const prettier = require('gulp-prettier');
 const imagemin = require('gulp-imagemin');
 const server = require('browser-sync').create();
+const stylelint = require('stylelint')({ fix: true });
 const postcssReporter = require('postcss-reporter')({
   clearAllMessages: true,
   throwError: false
@@ -23,7 +24,7 @@ const buildHTML = () => src(['source/**/*.html', '!source/**/_*.html'])
 const buildCSS = () => src(['source/css/**/*.css', '!source/css/**/_*.css'])
   .pipe(require('gulp-postcss')([
     require('postcss-easy-import')(),
-    require('stylelint')({ fix: true }),
+    stylelint,
     require('autoprefixer')(),
     postcssReporter
   ]))
@@ -69,13 +70,9 @@ const reload = (done) => {
   done();
 };
 
-const fixHTML = () => src('source/**/*.html')
-  .pipe(prettier())
-  .pipe(dest('source'));
-
 const fixCSS = () => src('source/css/**/*.css')
   .pipe(require('gulp-postcss')([
-    require('stylelint')({ fix: true }),
+    stylelint,
     postcssReporter
   ]))
   .pipe(dest('source/css'));
@@ -92,5 +89,5 @@ const startServer = () => {
   watch('source/img/**/*.{svg,png,jpg}', series(optimizeImages, reload));
 };
 
-exports.fix = series(fixHTML, fixCSS);
+exports.fix = series(fixCSS);
 exports.default = series(parallel(buildHTML, buildCSS, optimizeImages), startServer);
