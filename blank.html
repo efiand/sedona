@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>
-      Седона :
-      {% block title %}Страница в разработке{% endblock %}
-    </title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Седона : Страница в разработке</title>
   </head>
   <body>
     <header class="nav">
@@ -16,17 +13,18 @@
         src="img/logo-sedona.svg"
         width="139"
         height="70"
-        alt="Лого Седоны">
+        alt="Лого Седоны"
+      />
       <nav>
         <ul class="nav-pages">
           <li>
-            <a class="nav-link {{ 'nav-link-current' if page === 'index' }}" href="index.html">Главная</a>
+            <a class="nav-link" href="index.html">Главная</a>
           </li>
           <li>
             <a class="nav-link" href="blank.html">О Седоне</a>
           </li>
           <li>
-            <a class="nav-link {{ 'nav-link-current' if page === 'hotels' }}" href="hotels.html">Гостиницы</a>
+            <a class="nav-link" href="hotels.html">Гостиницы</a>
           </li>
         </ul>
       </nav>
@@ -50,23 +48,32 @@
       </nav>
     </header>
 
-    <main>
-      {% block main %}Страница в разработке.{% endblock %}
-    </main>
+    <main>Страница в разработке.</main>
 
     <footer>
-      <section class="subscribe {{ 'accent-block' if page === 'index' }}">
+      <section class="subscribe">
         <h2 class="subscribe-heading heading">Подпишитесь на рассылку</h2>
         <p class="subscribe-description description">
           Только полезная информация и никакого спама, честное бойскаутское!
         </p>
 
-        <form class="subscribe-form form-mini" action="https://echo.htmlacademy.ru" method="POST">
+        <form
+          class="subscribe-form form-mini"
+          action="https://echo.htmlacademy.ru"
+          method="POST"
+        >
           <label>
             <span class="visually-hidden">Ваш e-mail</span>
-            <input class="form-mini-field" type="email" placeholder="Ваш e-mail" required>
+            <input
+              class="form-mini-field"
+              type="email"
+              placeholder="Ваш e-mail"
+              required=""
+            />
           </label>
-          <button class="form-mini-submit btn btn-primary" type="submit">Подписаться</button>
+          <button class="form-mini-submit btn btn-primary" type="submit">
+            Подписаться
+          </button>
         </form>
       </section>
 
@@ -74,24 +81,40 @@
         <h2 class="visually-hidden">Контакты</h2>
         <ul class="page-footer-social social">
           <li>
-            <a class="social-link social-link-facebook" href="https://www.facebook.com/htmlacademy">
+            <a
+              class="social-link social-link-facebook"
+              href="https://www.facebook.com/htmlacademy"
+            >
               <span class="visually-hidden">Facebook</span>
             </a>
           </li>
           <li>
-            <a class="social-link social-link-twitter" href="https://twitter.com/htmlacademy_ru">
+            <a
+              class="social-link social-link-twitter"
+              href="https://twitter.com/htmlacademy_ru"
+            >
               <span class="visually-hidden">Twitter</span>
             </a>
           </li>
           <li>
-            <a class="social-link social-link-youtube" href="https://www.youtube.com/c/HTMLAcademyRUS">
+            <a
+              class="social-link social-link-youtube"
+              href="https://www.youtube.com/c/HTMLAcademyRUS"
+            >
               <span class="visually-hidden">Youtube</span>
             </a>
           </li>
         </ul>
-        <a class="page-footer-tel" href="tel:+78128121212">+7 (812) 812-12-12</a>
+        <a class="page-footer-tel" href="tel:+78128121212"
+          >+7 (812) 812-12-12</a
+        >
         <a class="page-footer-logo" href="https://htmlacademy.ru/">
-          <img src="img/logo-htmlacademy.svg" width="115" height="34" alt="Разработано в HTML Academy">
+          <img
+            src="img/logo-htmlacademy.svg"
+            width="115"
+            height="34"
+            alt="Разработано в HTML Academy"
+          />
         </a>
       </section>
     </footer>
