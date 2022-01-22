@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Седона : Главная</title>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#81b3d3" />
+    <meta name="msapplication-TileColor" content="#81b3d3" />
+    <meta name="theme-color" content="#ffffff" />
   </head>
   <body>
     <header class="nav">
@@ -60,7 +69,7 @@
 
         <ul class="welcome-cards cards">
           <li class="cards-group">
-            <div class="cards-item accent-block">
+            <div class="cards-item cards-item-accent">
               <h3 class="cards-title">Настоящий городок</h3>
               <p class="cards-text">
                 Седона — не аттракцион для туристов, там течёт своя жизнь
@@ -102,7 +111,7 @@
               height="384"
               alt="Мост дьявола"
             />
-            <div class="cards-item accent-block">
+            <div class="cards-item cards-item-accent">
               <h3 class="cards-title">Там есть мост дьявола</h3>
               <p class="cards-text">
                 Да, по нему можно пройти! Если вы осмелитесь, разумеется
@@ -242,6 +251,9 @@
           </fieldset>
         </form>
       </section>
+
+      <input type="email" name="email" />
+      <button type="submit">Подписаться</button>
     </main>
 
     <footer>
@@ -312,5 +324,13 @@
         </a>
       </section>
     </footer>
+
+    <script>
+      window.pinegladePP = {
+        breakpoints: [1200],
+        folder: "img/pixelperfect",
+      };
+    </script>
+    <script src="https://efiand.github.io/pineglade-pp/pineglade-pp.min.js?1"></script>
   </body>
 </html>
