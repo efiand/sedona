@@ -1,93 +1,145 @@
-const { src, dest, watch, series, parallel } = require('gulp');
-const nunjucks = require('nunjucks');
-const prettier = require('gulp-prettier');
-const imagemin = require('gulp-imagemin');
-const server = require('browser-sync').create();
-const stylelint = require('stylelint')({ fix: true });
-const postcssReporter = require('postcss-reporter')({
-  clearAllMessages: true,
-  throwError: false
+import gulp from 'gulp';
+import posthtml from 'gulp-posthtml';
+import postcss from 'gulp-postcss';
+import vinylNamed from 'vinyl-named';
+import webpack from 'webpack';
+import webpackStream from 'webpack-stream';
+import webpackConfig from './webpack.config.js';
+import imagemin from 'gulp-imagemin';
+import svgo from 'imagemin-svgo';
+import svgoConfig from './svgo.config.js';
+import mozjpeg from 'imagemin-mozjpeg';
+import pngquant from 'imagemin-pngquant';
+import clean from 'gulp-clean';
+import webp from 'gulp-webp';
+import stackSprite from 'gulp-svg-sprite';
+import eslint from 'gulp-eslint';
+import lintspaces from 'gulp-lintspaces';
+import rename from 'gulp-rename';
+import browsersync from 'browser-sync';
+import del from 'del';
+
+const { src, dest, watch, series, parallel } = gulp;
+const server = browsersync.create();
+const IS_DEV = process.env.NODE_ENV === 'development';
+const checkLintspaces = () => lintspaces({
+  editorconfig: '.editorconfig'
 });
 
-const buildHTML = () => src(['source/**/*.html', '!source/**/_*.html'])
-  .pipe(require('gulp-posthtml')([
-    (() => (tree) => {
-      nunjucks.configure('source', { autoescape: false });
+const Path = {
+  DIST: 'public',
+  Build: {
+    CSS: ['source/styles/*.css'],
+    JS: ['source/scripts/*.js']
+  },
+  Watch: {
+    HTML: 'source/**/*.njk',
+    CSS: 'source/**/*.css',
+    JS: ['*.{js,cjs}', 'source/**/*.js'],
+    IMG: 'place/images/**/*.{svg,png,jpg}',
+    IMG_DEST: 'public/images/**/*.{png,jpg}',
+    ICONS: 'place/icons/**/*.{svg,png}',
+    SPRITE: 'source/icons/*.svg'
+  }
+};
+if (!IS_DEV) {
+  Path.Build.CSS.push('!source/styles/entries/dev.css');
+  Path.Build.JS.push('!source/scripts/entries/dev.js');
+}
 
-      return require('posthtml-parser')(nunjucks.renderString(require('posthtml-render')(tree), {}));
-    })(),
-    require('posthtml-w3c')()
-  ]))
-  .pipe(prettier())
-  .pipe(dest('.'));
+const buildHTML = () => src('source/layouts/pages/**/*.njk')
+  .pipe(posthtml())
+  .pipe(rename({ extname: '.html' }))
+  .pipe(dest(Path.DIST));
 
-const buildCSS = () => src(['source/css/**/*.css', '!source/css/**/_*.css'])
-  .pipe(require('gulp-postcss')([
-    require('postcss-easy-import')(),
-    stylelint,
-    require('autoprefixer')(),
-    postcssReporter
-  ]))
-  .pipe(dest('css'));
+const buildCSS = () => src(Path.Build.CSS)
+  .pipe(postcss())
+  .pipe(rename({ suffix: '.min' }))
+  .pipe(dest(`${Path.DIST}/styles`));
 
-const optimizeImages = () => src('source/img/**/*.{svg,png,jpg}')
+const buildJS = () => src(Path.Build.JS)
+  .pipe(vinylNamed())
+  .pipe(webpackStream(webpackConfig, webpack))
+  .pipe(dest(`${Path.DIST}/scripts`));
+
+const saveImages = () => src(Path.Watch.IMG)
   .pipe(imagemin([
-    imagemin.svgo({
-      plugins: [
-        {
-          name: 'removeViewBox',
-          active: false
-        },
-        {
-          name: 'removeTitle',
-          active: true
-        },
-        {
-          name: 'cleanupNumericValues',
-          params: { floatPrecision: 2 }
-        },
-        {
-          name: 'convertPathData',
-          params: { floatPrecision: 2 }
-        },
-        {
-          name: 'convertTransform',
-          params: { floatPrecision: 2 }
-        },
-        {
-          name: 'cleanupListOfValues',
-          params: { floatPrecision: 2 }
-        }
-      ]
-    }),
-    imagemin.mozjpeg({ quality: 75, progressive: true }),
-    imagemin.optipng()
+    svgo(svgoConfig),
+    mozjpeg({ quality: 75, progressive: true }),
+    pngquant()
   ]))
-  .pipe(dest('img'));
+  .pipe(clean())
+  .pipe(dest(`${Path.DIST}/images`));
+
+const createWebp = () => src(Path.Watch.IMG_DEST)
+  .pipe(webp({ quality: 80 }))
+  .pipe(dest(`${Path.DIST}/images`));
+
+const optimizeIcons = () => src(Path.Watch.ICONS)
+  .pipe(imagemin([
+    svgo(svgoConfig),
+    pngquant()
+  ]))
+  .pipe(clean())
+  .pipe(dest('source/icons'));
+
+const buildSprite = () => src(Path.Watch.SPRITE)
+  .pipe(stackSprite({ mode: { stack: true } }))
+  .pipe(rename('sprite.min.svg'))
+  .pipe(dest(`${Path.DIST}/images`));
+
+const testHTML = () => src(Path.Watch.HTML)
+  .pipe(checkLintspaces())
+  .pipe(lintspaces.reporter());
+
+const testCSS = () => src(Path.Watch.CSS)
+  .pipe(postcss())
+  .pipe(checkLintspaces())
+  .pipe(lintspaces.reporter());
+
+const testJS = () => src(Path.Watch.JS)
+  .pipe(eslint({
+    fix: false
+  }))
+  .pipe(eslint.format())
+  .pipe(checkLintspaces())
+  .pipe(lintspaces.reporter());
+
+const copyPP = () => src('source/pixelperfect/*.{jpg,png,svg}')
+  .pipe(dest(`${Path.DIST}/pixelperfect`));
 
 const reload = (done) => {
   server.reload();
   done();
 };
 
-const fixCSS = () => src('source/css/**/*.css')
-  .pipe(require('gulp-postcss')([
-    stylelint,
-    postcssReporter
-  ]))
-  .pipe(dest('source/css'));
-
 const startServer = () => {
   server.init({
     cors: true,
-    server: '.',
-    ui: false
+    server: Path.DIST,
+    ui: false,
+    open: false
   });
 
-  watch('source/**/*.html', series(buildHTML, reload));
-  watch('source/css/**/*.css', series(buildCSS, reload));
-  watch('source/img/**/*.{svg,png,jpg}', series(optimizeImages, reload));
+  watch(Path.Watch.HTML, series(testHTML, buildHTML, reload));
+  watch(Path.Watch.CSS, series(testCSS, buildCSS, reload));
+  watch('source/layouts/**/*.js', series(testJS, buildHTML, reload));
+  watch('source/{components,scripts}/**/*.js', series(testJS, buildJS, reload));
+  watch('*.{js,cjs}', testJS);
+  watch(Path.Watch.IMG, saveImages);
+  watch(Path.Watch.IMG_DEST, series(createWebp, reload));
+  watch(Path.Watch.ICONS, series(optimizeIcons, buildCSS, reload));
+  watch(Path.Watch.SPRITE, series(buildSprite, reload));
 };
 
-exports.fix = series(fixCSS);
-exports.default = series(parallel(buildHTML, buildCSS, optimizeImages), startServer);
+const cleanDest = () => del([
+  `${Path.DIST}/**/*.{html,css,js,webp}`,
+  `${Path.DIST}/images/sprite.min.svg`,
+  `${Path.DIST}/pixelperfect`
+]);
+
+export const test = parallel(testHTML, testCSS, testJS);
+const prepare = parallel(test, cleanDest, saveImages, optimizeIcons);
+const compile = parallel(buildHTML, buildCSS, buildJS, createWebp, buildSprite);
+export const build = series(prepare, compile);
+export default series(build, copyPP, startServer);

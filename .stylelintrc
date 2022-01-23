@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "stylelint-config-htmlacademy",
+    "stylelint-order-htmlacademy"
+  ],
+  "rules": {
+    "number-max-precision": 5
+  }
+}

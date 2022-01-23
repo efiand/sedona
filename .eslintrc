@@ -1,0 +1,22 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2019,
+    "sourceType": "module"
+  },
+  "env": {
+    "es2017": true,
+    "node": true,
+    "browser": true
+  },
+  "extends": "htmlacademy/vanilla",
+  "overrides": [
+    {
+      "files": [
+        "source/layouts/**/*.js"
+      ],
+      "rules": {
+        "no-unused-expressions": "off"
+      }
+    }
+  ]
+}

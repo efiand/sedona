@@ -1,0 +1,26 @@
+{% set tag = 'ol' if ordered else 'ul' %}
+
+<{{ tag }} class="cards {{ cssMix }}">
+  {% for item in list %}
+    {% macro itemBody(item) %}
+      <h3 class="cards-title {{ 'cards-title-icon cards-title-icon-' + item.icon if item.icon }}">
+        {{ item.title }}
+      </h3>
+      <p class="cards-text {{ 'cards-number-holder' if ordered }}">
+        {{ item.text }}
+      </p>
+    {% endmacro %}
+
+    {% if item.image %}
+      <li class="cards-group">
+        <div class="cards-item">{{ itemBody(item) }}</div>
+        {% with item.image | setProp("class", "cards-image") %}{% include "components/picture/picture.njk" %}{% endwith %}
+        {% if item.cards %}
+          {% with item.cards %}{% include "components/cards/cards.njk" %}{% endwith %}
+        {% endif %}
+      </li>
+    {% else %}
+      <li class="cards-item">{{ itemBody(item) }}</li>
+    {% endif %}
+  {% endfor %}
+</{{ tag }}>

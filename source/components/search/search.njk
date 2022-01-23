@@ -1,0 +1,17 @@
+<section class="search">
+  <p class="search-heading heading">{{ lead }}</p>
+  <p class="search-description description">{{ text }}</p>
+  <a class="button button-big search-link" href="blank.html" data-open="search">
+    {{ title }}
+  </a>
+
+  <div class="modal" data-modal="search">
+    <div class="modal-inner">
+      <h2>{{ title }}</h2>
+      <button class="modal-close" type="button">
+        <span class="visually-hidden">Закрыть окно.</span>
+      </button>
+      {% with form | setProp("cssMix", "modal-body") %}{% include "components/form/form.njk" %}{% endwith %}
+    </div>
+  </div>
+</section>

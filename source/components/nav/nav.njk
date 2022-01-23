@@ -1,0 +1,35 @@
+<header class="nav">
+  <a class="nav-logo" href="{{ item[0].url }}">
+    <img src="images/logo-sedona.svg" alt="Лого седоны." height="70" width="139">
+  </a>
+  <nav>
+    <ul class="nav-pages">
+      {% for item in pages %}
+        <li>
+          <a class="nav-link {{ 'nav-link-current' if item.isCurrent }}" href="{{ item.url }}">
+            {{ item.title }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+  <nav>
+    <ul class="nav-services">
+      {% for item in services %}
+        <li>
+          {% if item.icon %}
+            <a class="nav-service nav-service-{{ item.icon }}" href="{{ item.url }}">
+              <span class="visually-hidden">{{ item.title | dotify }}</span>
+              {% if item.label %}
+                <span class="nav-notes">12</span>
+              {% endif %}
+            </a>
+          {% else %}
+            <a class="button nav-button" href="{{ item.href }}">{{ item.title }}</a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</header>

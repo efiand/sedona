@@ -1,0 +1,49 @@
+html {
+  --color-black: #000000;
+  --color-black-20: rgba(0, 0, 0, 0.25);
+  --color-black-15: rgba(0, 0, 0, 0.15);
+  --color-dark: #333333;
+  --color-gray: #e5e5e5;
+  --color-lite: #f2f2f2;
+  --color-white: #ffffff;
+  --color-warm-dark: #615048;
+  --color-warm-lite: #756257;
+  --color-neutral-dark: #6c9e42;
+  --color-neutral-lite: #7db54f;
+  --color-cold-dark: #68a2ca;
+  --color-cold-lite: #83b3d3;
+  --color-cold-lite-20: rgba(131, 179, 211, 0.2);
+  --color-cold-lite-12: rgba(131, 179, 211, 0.12);
+  --color-error: #ff5757;
+  --color-warn: #fd922e;
+  --color-success: #7db550;
+
+  font-size: 18px;
+  line-height: 1.16667;
+  font-family: "PT Sans", "Arial", sans-serif;
+  background-color: var(--color-gray);
+}
+
+body {
+  min-width: 320px;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow-y: scroll;
+  background-color: var(--color-white);
+  box-shadow: 0 0 15px var(--color-black-20);
+}
+
+a,
+button {
+  box-sizing: content-box;
+  font-family: inherit;
+  color: inherit;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.3s;
+  transition-property: color, opacity;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

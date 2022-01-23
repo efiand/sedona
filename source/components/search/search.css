@@ -1,0 +1,17 @@
+.search {
+  padding: 90px;
+}
+
+.search-heading {
+  margin-bottom: 32px;
+}
+
+.search-description {
+  line-height: 26px;
+}
+
+.search-link {
+  display: block;
+  max-width: 495px;
+  margin: 56px auto 0;
+}
