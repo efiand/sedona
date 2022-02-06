@@ -52,7 +52,7 @@
   justify-content: flex-end;
   align-items: center;
   margin: 0;
-  padding: 14px 0;
+  padding: 0;
   list-style: none;
 }
 
@@ -61,7 +61,7 @@
   display: block;
   width: 20px;
   height: 20px;
-  margin-left: 22px;
+  margin: 14px 0 14px 22px;
   text-decoration: none;
 
   &::before {
@@ -101,5 +101,5 @@
 .nav-button {
   display: block;
   min-width: 130px;
-  margin-left: 32px;
+  margin: 14px 0 14px 32px;
 }
