@@ -1,0 +1,4 @@
+.page {
+  background-color: var(--color-white);
+  box-shadow: 0 0 15px var(--color-black-20);
+}

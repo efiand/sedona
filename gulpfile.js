@@ -39,7 +39,8 @@ const Path = {
     IMG: 'place/images/**/*.{svg,png,jpg}',
     IMG_DEST: 'public/images/**/*.{png,jpg}',
     ICONS: 'place/icons/**/*.{svg,png}',
-    SPRITE: 'source/icons/*.svg'
+    SPRITE: 'source/icons/*.svg',
+    PP: 'source/pixelperfect/*.{jpg,png,svg}'
   }
 };
 if (!IS_DEV) {
@@ -105,7 +106,7 @@ const testJS = () => src(Path.Watch.JS)
   .pipe(checkLintspaces())
   .pipe(lintspaces.reporter());
 
-const copyPP = () => src('source/pixelperfect/*.{jpg,png,svg}')
+const copyPP = () => src(Path.Watch.PP)
   .pipe(dest(`${Path.DIST}/pixelperfect`));
 
 const reload = (done) => {
@@ -130,6 +131,7 @@ const startServer = () => {
   watch(Path.Watch.IMG_DEST, series(createWebp, reload));
   watch(Path.Watch.ICONS, series(optimizeIcons, buildCSS, reload));
   watch(Path.Watch.SPRITE, series(buildSprite, reload));
+  watch(Path.Watch.PP, series(copyPP, reload));
 };
 
 const cleanDest = () => del([

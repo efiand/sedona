@@ -1,6 +1,18 @@
 .modal {
+  overflow-y: scroll;
+
   &-ready {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     display: none;
+    background-color: var(--color-lite-80);
+
+    & .modal-closer {
+      display: flex;
+    }
   }
 
   &-opened {
@@ -11,9 +23,39 @@
 }
 
 .modal-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
   max-width: 575px;
   margin: auto;
-  padding: 70px;
+  padding: 54px 70px 70px;
+  background-color: var(--color-white);
   border-radius: 30px;
   box-shadow: 0 25px 50px var(--color-black-15);
+}
+
+.modal-heading {
+  margin: 5px 0 62px;
+  padding-right: 40px;
+  font-size: 30px;
+  line-height: 40px;
+  text-transform: uppercase;
+}
+
+.modal-closer {
+  display: none;
+  width: 53px;
+  height: 53px;
+  margin: 0 0 16px auto;
+  background-color: var(--color-lite);
+  border-radius: 50%;
+
+  &::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    margin: auto;
+    background-color: var(--color-black);
+    mask-image: url("../images/sprite.min.svg#cross");
+  }
 }

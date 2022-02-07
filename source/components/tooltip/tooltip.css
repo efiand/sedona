@@ -1,0 +1,66 @@
+.tooltip {
+  position: relative;
+  display: flex;
+  width: 25px;
+  height: 25px;
+  color: var(--color-white);
+  background-color: var(--color-cold-lite);
+  border-radius: 50%;
+  cursor: help;
+
+  &::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    margin: auto;
+    background-color: currentColor;
+    mask-image: url("../images/sprite.min.svg#info");
+  }
+
+  &:hover,
+  &:focus,
+  &:focus-within {
+    & .tooltip-content {
+      transform: translateX(-50%) scaleY(1);
+      visibility: visible;
+      transition: transform 0.2s ease-out;
+    }
+  }
+}
+
+.tooltip-content {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  min-width: 212px;
+  margin-top: 15px;
+  padding: 20px 22px 22px;
+  font-size: 16px;
+  line-height: 20px;
+  background-color: var(--color-dark);
+  border-radius: 10px;
+  box-shadow: 0 15px 30px var(--color-black-30);
+  transform: translateX(-50%) scaleY(0);
+  transform-origin: 50% -9px;
+  visibility: hidden;
+  transition: visibility 0s 0.2s ease-in, transform 0.2s ease-in;
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    left: 0;
+    height: 15px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    border: 9px solid transparent;
+    border-bottom-color: var(--color-dark);
+    transform: translateX(-50%);
+  }
+}

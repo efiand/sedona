@@ -7,8 +7,8 @@ const setBreakpoint = () => {
     breakpoint = 'tablet';
   }
   if (window.breakpoint !== breakpoint) {
-    const scrollbarWidth = Math.max(window.innerWidth - document.body.clientWidth, 0);
-    document.body.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
+    const scrollbarWidth = Math.max(window.innerWidth - document.documentElement.clientWidth, 0);
+    document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
 
     window.breakpoint = breakpoint;
     window.dispatchEvent(screenChangeEvent);
