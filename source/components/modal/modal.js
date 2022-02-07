@@ -8,7 +8,6 @@ export default class Modal {
     this._setListeners();
 
     this._el.classList.add('modal-ready');
-    this._opener.classList.remove('hidden');
   }
 
   _setListeners() {

@@ -4,7 +4,8 @@
   margin-left: auto;
 }
 
-.hidden {
+.hidden,
+.no-js-hidden {
   display: none;
 }
 
