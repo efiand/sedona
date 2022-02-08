@@ -1,0 +1,33 @@
+<div class="filter">
+  {% for group in groups %}
+    {% with group %}
+      <fieldset class="filter-section">
+        <legend class="filter-name">{{ title | punctify(":") }}</legend>
+        {% if isRange %}
+          {% include "components/range/range.njk" %}
+        {% else %}
+          <ul class="filter-list">
+            {% for filter in list %}
+              <li>
+                <label class="filter-group">
+                  <input
+                    class="filter-choose filter-choose-{{ type }}"
+                    name="{{ name }}"
+                    type="{{ type }}"
+                    value="{{ item.value }}"
+                  />
+                  {{ item.title }}
+                </label>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </fieldset>
+    {% endwith %}
+  {% endfor %}
+
+  <div class="filter-btns">
+    <button class="button button-secondary filter-submit" name="page" value="1" type="submit">{{ submitTitle }}</button>
+    <button class="filter-reset" type="reset">{{ resetTitle }}</button>
+  </div>
+</div>

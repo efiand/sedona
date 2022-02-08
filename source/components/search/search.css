@@ -1,17 +1,9 @@
 .search {
-  padding: 88px;
-}
-
-.search-heading {
-  margin-bottom: 32px;
-}
-
-.search-description {
-  line-height: 26px;
+  padding: 88px 72px 94px;
 }
 
 .search-link {
   display: block;
-  max-width: 495px;
+  width: 495px;
   margin: 56px auto 0;
 }

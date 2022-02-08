@@ -1,0 +1,8 @@
+<section class="subscribe {{ 'subscribe-accent' if accent }}">
+  <h2 class="heading">{{ heading }}</h2>
+  <p class="subscribe-description description">{{ description }}</p>
+
+  {% with getContext() | setProp("cssMix", "subscribe-form") | setProp("fieldType", "email") %}
+    {% include "components/form-mini/form-mini.njk" %}
+  {% endwith %}
+</section>

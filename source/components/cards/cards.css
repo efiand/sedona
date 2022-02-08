@@ -8,8 +8,6 @@
 
 .cards {
   margin: 0;
-  padding: 0;
-  list-style: none;
   counter-reset: cards;
 
   & > li {
@@ -20,36 +18,44 @@
 .cards-item {
   padding: 98px 75px 108px;
   text-align: center;
-  color: var(--color-dark);
   background-color: var(--color-cold-lite-12);
 
   &:nth-child(2n) {
     background-color: var(--color-cold-lite-20);
   }
-}
 
-.cards-item-light {
-  background-color: var(--color-white);
-}
-
-.cards-image {
-  grid-column: span 2;
-}
-
-.cards-group {
-  & .cards-item {
-    padding-bottom: 90px;
-  }
-
-  & .cards-item:nth-of-type(2n) {
-    background-color: #ffffff;
-  }
-
-  & > .cards-item {
+  &-accent {
     padding-top: 96px;
     padding-bottom: 88px;
     color: var(--color-white);
     background-color: var(--color-cold-lite);
+
+    & .cards-title {
+      margin-bottom: 30px;
+    }
+
+    & .cards-text {
+      color: inherit;
+    }
+  }
+}
+
+.cards-image {
+  grid-column: span 2;
+
+  & img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.cards-group {
+  & .cards-item:not(.cards-item-accent) {
+    padding-bottom: 90px;
+  }
+
+  & .cards-item:nth-of-type(2n) {
+    background-color: var(--color-white);
   }
 
   &:nth-of-type(2n) .cards-image {
@@ -90,7 +96,8 @@
 }
 
 .cards-text {
-  margin: 0;
+  margin: 18px 0 0;
+  color: var(--color-dark);
 }
 
 .cards-number-holder::before {

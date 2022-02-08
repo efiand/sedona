@@ -1,0 +1,24 @@
+<p class="range">
+  {% for item in list %}
+    <label class="range-group">
+      <input
+        class="range-field"
+        name="{{ name }}"
+        type="{{ type }}"
+        value="{{ item.value }}"
+        max="{{ max }}"
+        min="{{ min }}"
+        step="{{ step }}"
+      />
+      {{ item.title }}
+    </label>
+  {% endfor %}
+
+  <span class="range-scale">
+    {% for item in list %}
+      <button class="range-control">
+        <span class="visually-hidden">{{ item.title | punctify }}</span>
+      </button>
+    {% endfor %}
+  </span>
+</p>

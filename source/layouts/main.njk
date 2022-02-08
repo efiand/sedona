@@ -25,49 +25,14 @@
     {% with nav %}{% include "components/nav/nav.njk" %}{% endwith %}
 
     <main>
-      {% block main %}Страница в разработке.{% endblock %}
+      {% block main %}
+        {% include "components/main-header/main-header.njk" %}
+      {% endblock %}
+      {% with subscribe %}{% include "components/subscribe/subscribe.njk" %}{% endwith %}
     </main>
 
-    <footer>
-      <section class="subscribe {{ 'subscribe-accent' if page === 'index' }}">
-        <h2 class="subscribe-heading heading">Подпишитесь на рассылку</h2>
-        <p class="subscribe-description description">
-          Только полезная информация и никакого спама, честное бойскаутское!
-        </p>
-
-        <form class="subscribe-form form-mini" action="https://echo.htmlacademy.ru" method="post">
-          <label>
-            <span class="visually-hidden">Ваш e-mail:</span>
-            <input class="form-mini-field" type="email" placeholder="ваш e-mail" required>
-          </label>
-          <button class="form-mini-submit btn btn-primary" type="submit">Подписаться</button>
-        </form>
-      </section>
-
-      <section class="page-footer">
-        <h2 class="visually-hidden">Контакты.</h2>
-        <ul class="page-footer-social social">
-          <li>
-            <a class="social-link social-link-facebook" href="https://www.facebook.com/htmlacademy">
-              <span class="visually-hidden">Facebook.</span>
-            </a>
-          </li>
-          <li>
-            <a class="social-link social-link-twitter" href="https://twitter.com/htmlacademy_ru">
-              <span class="visually-hidden">Twitter.</span>
-            </a>
-          </li>
-          <li>
-            <a class="social-link social-link-youtube" href="https://www.youtube.com/c/htmlacademyrus">
-              <span class="visually-hidden">Youtube.</span>
-            </a>
-          </li>
-        </ul>
-        <a class="page-footer-tel" href="tel:+78128121212">+7 (812) 812-12-12</a>
-        <a class="page-footer-logo" href="https://htmlacademy.ru/">
-          <img src="images/logo-htmlacademy.svg" alt="разработано в html academy." height="34" width="115">
-        </a>
-      </section>
+    <footer class="page-footer">
+      {% with contacts %}{% include "components/contacts/contacts.njk" %}{% endwith %}
     </footer>
 
     {% if isDev %}

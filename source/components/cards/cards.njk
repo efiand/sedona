@@ -13,7 +13,7 @@
 
     {% if item.image %}
       <li class="cards-group">
-        <div class="cards-item">{{ itemBody(item) }}</div>
+        <div class="cards-item cards-item-accent">{{ itemBody(item) }}</div>
         {% with item.image | setProp("class", "cards-image") %}{% include "components/picture/picture.njk" %}{% endwith %}
         {% if item.cards %}
           {% with item.cards %}{% include "components/cards/cards.njk" %}{% endwith %}

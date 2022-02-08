@@ -3,6 +3,7 @@
   display: flex;
   width: 25px;
   height: 25px;
+  font-weight: 400;
   color: var(--color-white);
   background-color: var(--color-cold-lite);
   border-radius: 50%;
@@ -32,9 +33,9 @@
   position: absolute;
   top: 100%;
   left: 50%;
-  min-width: 212px;
+  min-width: 216px;
   margin-top: 15px;
-  padding: 20px 22px 22px;
+  padding: 20px 20px 22px;
   font-size: 16px;
   line-height: 20px;
   background-color: var(--color-dark);

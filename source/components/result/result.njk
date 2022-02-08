@@ -1,0 +1,34 @@
+<div class="result">
+  <h2 class="result-heading">
+    {{ title | punctify(":") }}
+    <span class="result-count">{{ count }}</span>
+  </h2>
+
+  {% with sort %}
+    <label aria-label="{{ title | punctify }}">
+      <select class="result-sort" name="sorting-dir" data-submit>
+        {% for option in options %}
+          <option value="{{ option.value }}">{{ option.title }}</option>
+        {% endfor %}
+      </select>
+    </label>
+  {% endwith %}
+
+  <ul class="result-mode" aria-label="{{ modesTitle | punctify }}">
+    {% for mode in modes %}
+      <li>
+        <label class="result-mode-item result-mode-item-{{ mode.value }}">
+          <span class="visually-hidden">{{ mode.title | punctify }}</span>
+          <input
+            class="result-mode-choose"
+            name="sorting-type"
+            type="radio"
+            value="{{ mode.value }}"
+            {{ "checked" if mode.checked }}
+            data-submit
+          />
+        </label>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

@@ -1,0 +1,11 @@
+<ul class="pagination {{ cssMix }}">
+  {% for item in list %}
+    {% set class = 'pagination-link' + (' pagination-link-current' if item.current) %}
+
+    <li class="pagination-item">
+      <button class="{{ class }}" name="page" type="submit" value="{{ item.value }}" {{ "disabled" if item.current }}>
+        {{ item.title }}
+      </button>
+    </li>
+  {% endfor %}
+</ul>

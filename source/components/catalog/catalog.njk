@@ -1,0 +1,37 @@
+<section class="catalog">
+  <form action="https://echo.htmlacademy.ru">
+    <div class="catalog-header">
+      {% include "components/main-header/main-header.njk" %}
+
+      {% with filter %}{% include "components/filter/filter.njk" %}{% endwith %}
+    </div>
+
+    {% with result %}{% include "components/result/result.njk" %}{% endwith %}
+
+    <ul class="catalog-list">
+      {% for good in goods %}
+        {% with good | setProp("tag", "li") | setProp("cssMix", "catalog-item") %}
+          {% include "components/good/good.njk" %}
+        {% endwith %}
+      {% endfor %}
+    </ul>
+
+    <button class="button button-big button-secondary catalog-more" name="limit" type="submit" value="{{ limits[1] }}">
+      {{ moreTitle }}
+    </button>
+
+    {% with pager | setProp("cssMix", "catalog-pagination") %}
+      {% include "components/pagination/pagination.njk" %}
+    {% endwith %}
+
+    <label class="catalog-limit">
+      {{ limitsTitle | punctify(":") }}
+
+      <select class="catalog-limit-list" name="limit" data-submit>
+        {% for limit in limits %}
+          <option>{{ limit }}</option>
+        {% endfor %}
+      </select>
+    </label>
+  </form>
+</section>

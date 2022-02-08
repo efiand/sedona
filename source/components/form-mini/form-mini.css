@@ -1,0 +1,24 @@
+.form-mini {
+  display: flex;
+}
+
+.form-mini-group {
+  flex-grow: 1;
+}
+
+.form-mini-field {
+  width: 100%;
+  padding: 18px 22px 16px;
+  line-height: 26px;
+  background-color: var(--color-lite);
+  border-radius: 10px 0 0 10px;
+}
+
+.form-mini-submit {
+  flex-shrink: 0;
+  min-width: 140px;
+  padding-right: 30px;
+  padding-left: 30px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}

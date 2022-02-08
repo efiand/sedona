@@ -1,9 +1,13 @@
 .heading {
   max-width: 720px;
-  margin: 0 auto 34px;
+  margin: 0 auto 32px;
   font-weight: 700;
   font-size: 30px;
   line-height: 36px;
   text-align: center;
   text-transform: uppercase;
+
+  &-lead {
+    margin-bottom: 38px;
+  }
 }

@@ -125,7 +125,7 @@ const startServer = () => {
   watch(Path.Watch.HTML, series(testHTML, buildHTML, reload));
   watch(Path.Watch.CSS, series(testCSS, buildCSS, reload));
   watch('source/layouts/**/*.js', series(testJS, buildHTML, reload));
-  watch('source/{components,scripts}/**/*.js', series(testJS, buildJS, reload));
+  watch('source/{components,scripts,lib}/**/*.{js,cjs}', series(testJS, buildJS, reload));
   watch('*.{js,cjs}', testJS);
   watch(Path.Watch.IMG, saveImages);
   watch(Path.Watch.IMG_DEST, series(createWebp, reload));

@@ -1,0 +1,23 @@
+<{{ tag }} class="good {{ cssMix }}">
+  <h3 class="good-title">{{ title }}</h3>
+
+  {% with image | setProp("class", "good-image") %}
+    {% include "components/picture/picture.njk" %}
+  {% endwith %}
+
+  <p class="good-type">{{ type }}</p>
+  <p class="good-price">{{ price }}</p>
+
+  {% for link in links %}
+    <a class="good-button button {{ 'button-' + link.type if link.type }}" href="{{ link.url }}">
+      {{ link.title }}
+    </a>
+  {% endfor %}
+
+  <p class="good-star-rating good-star-rating-{{ starRating }}">
+    <span class="visually-hidden">
+      {{ starRatingTitle | punctify(":") }} {{ starRating }}
+    </span>
+  </p>
+  <p class="good-rating">{{ ratingTitle | punctify(":") }} {{ rating }}</p>
+</{{ tag }}>

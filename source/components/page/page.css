@@ -1,4 +1,11 @@
 .page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   background-color: var(--color-white);
   box-shadow: 0 0 15px var(--color-black-20);
+}
+
+.page-footer {
+  margin-top: auto;
 }

@@ -1,0 +1,7 @@
+.catalog-header {
+  color: var(--color-white);
+  background-color: var(--color-cold-lite);
+  background-image: url("../images/bg-filters.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

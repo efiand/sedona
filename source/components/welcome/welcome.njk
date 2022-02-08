@@ -2,7 +2,7 @@
   <header class="welcome-header">
     <h2 class="visually-hidden">{{ heading }}</h2>
   </header>
-  <p class="heading">{{ lead }}</p>
+  <p class="heading heading-lead">{{ lead }}</p>
   <p class="description">{{ description }}</p>
 
   {% with cards | setProp("cssMix", "welcome-cards") %}{% include "components/cards/cards.njk" %}{% endwith %}

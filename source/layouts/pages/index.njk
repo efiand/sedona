@@ -1,7 +1,5 @@
 {% extends "layouts/main.njk" %}
 
-{% block title %}Главная{% endblock %}
-
 {% block main %}
   <h1 class="visually-hidden">{{ heading }}</h1>
   {% with advantages %}{% include "components/welcome/welcome.njk" %}{% endwith %}

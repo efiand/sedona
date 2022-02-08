@@ -2,28 +2,11 @@ const nunjucks = require('nunjucks');
 const render = require('posthtml-render');
 const parser = require('posthtml-parser');
 const WithExtension = require('@allmarkedup/nunjucks-with');
+const Util = require('./source/lib/util.cjs');
 const { readFile } = require('fs').promises;
 
 const layoutsDir = `${__dirname}/source/layouts`;
 const isDev = process.env.NODE_ENV === 'development';
-const Lib = {
-  getObjectKeys(obj) {
-    return Object.keys(obj);
-  },
-  setObjectProp(obj = {}, key, value = null) {
-    obj[key] = value;
-    return obj;
-  },
-  getFilenameWithoutExt(filename) {
-    return filename.slice(0, filename.lastIndexOf('.'));
-  },
-  dotify(str) {
-    if (/\.|\?|!|,|:$/.test(str)) {
-      return str;
-    }
-    return `${str}.`;
-  }
-};
 
 module.exports = () => ({
   plugins: [
@@ -35,7 +18,7 @@ module.exports = () => ({
         errors: []
       };
 
-      const applyData = (fn) => eval(`(${fn.replace(/;\s*$/, '')})`)(data, Lib);
+      const applyData = (fn) => eval(`(${fn.replace(/;\s*$/, '')})`)(data, Util);
 
       try {
         // Перечитываем код логики проекта при каждом изменении
@@ -62,10 +45,13 @@ module.exports = () => ({
       const env = nunjucks.configure('source', { autoescape: false });
 
       env.addExtension('WithExtension', new WithExtension());
-      env.addFilter('keys', Lib.getObjectKeys);
-      env.addFilter('setProp', Lib.setObjectProp);
-      env.addFilter('dropExt', Lib.getFilenameWithoutExt);
-      env.addFilter('dotify', Lib.dotify);
+      env.addGlobal('getContext', function() {
+        return this.ctx;
+      });
+      env.addFilter('keys', Object.keys);
+      for (const utilName of Object.keys(Util)) {
+        env.addFilter(utilName, Util[utilName]);
+      }
 
       return parser(nunjucks.renderString(render(tree), data));
     })(),

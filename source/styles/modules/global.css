@@ -38,6 +38,10 @@ button {
   transition-timing-function: ease-in-out;
   transition-duration: 0.3s;
   transition-property: color, opacity;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-cold-dark);
+  }
 }
 
 button {
@@ -45,8 +49,20 @@ button {
   border: none;
 }
 
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
 input {
+  box-sizing: border-box;
   font: inherit;
+  border: none;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-cold-dark);
+  }
 
   &[type="number"] {
     appearance: textfield;
@@ -56,9 +72,14 @@ input {
       appearance: none;
     }
   }
+
+  &::placeholder {
+    color: inherit;
+    opacity: 0.6;
+  }
 }
 
 img {
   max-width: 100%;
-  height: auto;
+  object-fit: contain;
 }

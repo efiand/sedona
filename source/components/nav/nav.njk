@@ -1,6 +1,6 @@
 <header class="nav">
-  <a class="nav-logo" href="{{ item[0].url }}">
-    <img src="images/logo-sedona.svg" alt="Лого седоны." height="70" width="139">
+  <a class="nav-logo" href="{{ pages[0].url }}">
+    <img src="images/logo-sedona.svg" alt="{{ logoTitle | punctify }}" height="70" width="139">
   </a>
   <nav>
     <ul class="nav-pages">
@@ -20,13 +20,13 @@
         <li>
           {% if item.icon %}
             <a class="nav-service nav-service-{{ item.icon }}" href="{{ item.url }}">
-              <span class="visually-hidden">{{ item.title | dotify }}</span>
+              <span class="visually-hidden">{{ item.title | punctify }}</span>
               {% if item.label %}
-                <span class="nav-notes">12</span>
+                <span class="nav-notes">{{ item.label }}</span>
               {% endif %}
             </a>
           {% else %}
-            <a class="button nav-button" href="{{ item.href }}">{{ item.title }}</a>
+            <a class="button nav-button" href="{{ item.url }}">{{ item.title }}</a>
           {% endif %}
         </li>
       {% endfor %}

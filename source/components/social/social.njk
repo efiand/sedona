@@ -1,0 +1,11 @@
+<ul class="social {{ cssmix }}">
+  {% for link in list %}
+    {% with link %}
+      <li>
+        <a class="social-link social-link-{{ name }}" href="{{ url }}">
+          <span class="visually-hidden">{{ title | punctify }}</span>
+        </a>
+      </li>
+    {% endwith %}
+  {% endfor %}
+</ul>

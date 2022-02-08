@@ -35,8 +35,9 @@
 }
 
 .modal-heading {
+  max-width: 490px;
   margin: 5px 0 62px;
-  padding-right: 40px;
+  padding-right: 32px;
   font-size: 30px;
   line-height: 40px;
   text-transform: uppercase;
