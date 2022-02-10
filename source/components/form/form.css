@@ -8,43 +8,50 @@
 
 .form-group {
   position: relative;
-  display: grid;
-  align-items: start;
-  grid-template-columns: 138px 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
   width: 100%;
   margin: 0 0 14px;
   line-height: 40px;
-  column-gap: 18px;
 
   &-short {
     width: 50%;
 
     &:nth-of-type(2n) .form-label {
-      justify-content: flex-end;
+      width: auto;
+      max-width: 100px;
+      margin-left: auto;
     }
   }
 }
 
 .form-label {
-  display: flex;
-  padding-top: 4px;
+  order: -2;
+  width: 145px;
+  padding: 5px 10px 0 0;
   font-weight: 700;
 }
 
 .form-field {
-  width: 100%;
-  padding: 3px 20px 7px;
+  padding: 4px 20px 6px;
   font-weight: 700;
   background-color: var(--color-lite);
   border-radius: 4px;
 
+  &:not(&-counter) {
+    flex-grow: 1;
+  }
+
   &-counter {
+    max-width: 132px;
     text-align: center;
   }
 }
 
 .form-status {
   grid-column: 2 / -1;
+  margin-left: 155px;
   font-size: 16px;
   line-height: 26px;
   color: var(--color-dark);
@@ -77,11 +84,74 @@
 }
 
 .form-tooltip {
-  margin: 10px 0 0 10px;
+  position: relative;
+  display: flex;
+  order: -1;
+  width: 25px;
+  height: 25px;
+  margin: 14px 20px 0 0;
+  color: var(--color-white);
+  background-color: var(--color-cold-lite);
+  border-radius: 50%;
+  cursor: help;
+
+  &::before {
+    content: "";
+    width: 9px;
+    height: 9px;
+    margin: auto;
+    background-color: currentColor;
+    mask-image: url("../images/sprite.min.svg#info");
+  }
+
+  &:hover,
+  &:focus-within,
+  .form-field:focus + & {
+    & .form-tooltip-content {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+.form-tooltip-content {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  min-width: 216px;
+  margin-top: 15px;
+  padding: 20px 20px 22px;
+  font-size: 16px;
+  line-height: 20px;
+  background-color: var(--color-dark);
+  border-radius: 10px;
+  box-shadow: 0 15px 30px var(--color-black-30);
+  transform: translateX(-50%);
+  visibility: hidden;
+  opacity: 0.01;
+  transition: visibility 0.3s, opacity 0.3s;
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    left: 0;
+    height: 15px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    border: 9px solid transparent;
+    border-bottom-color: var(--color-dark);
+    transform: translateX(-50%);
+  }
 }
 
 .form-submit {
-  box-sizing: border-box;
   width: 100%;
   margin-top: 26px;
 }

@@ -6,11 +6,6 @@
         <p class="form-group {{ 'form-group-short' if section.counters }}">
           <label class="form-label" for="{{ group.id }}">
             {{ group.title | punctify(":") }}
-            {% if group.tooltip %}
-              <span class="form-tooltip tooltip" tabindex="0">
-                <span class="tooltip-content">{{ group.tooltip }}</span>
-              </span>
-            {% endif %}
           </label>
 
           {% if section.counters %}
@@ -23,16 +18,24 @@
             id="{{ group.id }}"
             name="{{ section.name }}"
             value="{{ group.value }}"
+            {{ 'aria-describedby=tooltip-' + group.id if group.tooltip }}
             {{ 'type=number' if section.counters }}
             {{ 'min=' + group.min if group.min }}
             {{ 'max=' + group.max if group.min }}
             {{ 'required' if group.required }}
           />
+          {% if group.tooltip %}
+            <span class="form-tooltip" aria-hidden="true">
+              <span class="form-tooltip-content" role="tooltip" id="tooltip-{{ group.id }}">
+                {{ group.tooltip }}
+              </span>
+            </span>
+          {% endif %}
           <span class="form-status {{ 'form-status-error' if group.error }}">{{ group.status }}</span>
 
           {% if section.counters %}
             <button class="form-control form-control-step-up no-js-hidden" type="button">
-              <span class="visually-hidden">{{ stepDownTitle | punctify }}</span>
+              <span class="visually-hidden">{{ stepUpTitle | punctify }}</span>
             </button>
           {% elif group.datepickerTitle %}
             <button class="form-control form-control-datepicker no-js-hidden" type="button">

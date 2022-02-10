@@ -1,7 +1,7 @@
 <header class="main-header {{ cssMix }}">
   <h1 class="main-header-heading">{{ heading }}</h1>
 
-  {% with getContext() | setProp("cssMix", "main-header-breadcrumbs") %}
+  {% with getContext() %}
     {% include "components/breadcrumbs/breadcrumbs.njk" %}
   {% endwith %}
 </header>

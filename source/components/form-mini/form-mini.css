@@ -15,8 +15,7 @@
 }
 
 .form-mini-submit {
-  flex-shrink: 0;
-  min-width: 140px;
+  min-width: 200px;
   padding-right: 30px;
   padding-left: 30px;
   border-top-left-radius: 0;

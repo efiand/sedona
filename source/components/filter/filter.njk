@@ -1,21 +1,22 @@
 <div class="filter">
   {% for group in groups %}
     {% with group %}
-      <fieldset class="filter-section">
+      <fieldset class="filter-section {{ 'filter-section-range' if isRange }}">
         <legend class="filter-name">{{ title | punctify(":") }}</legend>
         {% if isRange %}
           {% include "components/range/range.njk" %}
         {% else %}
           <ul class="filter-list">
-            {% for filter in list %}
+            {% for item in list %}
               <li>
-                <label class="filter-group">
-                  <input
-                    class="filter-choose filter-choose-{{ type }}"
-                    name="{{ name }}"
-                    type="{{ type }}"
-                    value="{{ item.value }}"
-                  />
+                <input
+                  class="visually-hidden"
+                  id="checker-{{ item.value }}"
+                  name="{{ name }}"
+                  type="{{ type }}"
+                  value="{{ item.value }}"
+                />
+                <label class="filter-choose filter-choose-{{ type }}" for="checker-{{ item.value }}">
                   {{ item.title }}
                 </label>
               </li>
