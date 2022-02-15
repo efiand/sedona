@@ -1,4 +1,4 @@
-<p class="range">
+<div class="range {{ cssMix }}">
   {% for item in list %}
     <label class="range-group">
       <input
@@ -10,15 +10,9 @@
         min="{{ min }}"
         step="{{ step }}"
       />
-      {{ item.title }}
+      <span class="range-label range-label-{{ getGlobal('lang') }}">{{ item.title }}</span>
     </label>
   {% endfor %}
 
-  <span class="range-scale">
-    {% for item in list %}
-      <button class="range-control">
-        <span class="visually-hidden">{{ item.title | punctify }}</span>
-      </button>
-    {% endfor %}
-  </span>
-</p>
+  <div class="range-slider-target no-js-hidden"></div>
+</div>

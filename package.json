@@ -36,6 +36,7 @@
     "imagemin-mozjpeg": "10.0.0",
     "imagemin-pngquant": "9.0.2",
     "imagemin-svgo": "10.0.1",
+    "nouislider": "15.5.1",
     "nunjucks": "3.2.3",
     "pineglade-pp": "1.0.5",
     "postcss-base64": "0.7.1",

@@ -4,6 +4,6 @@
     "stylelint-order-htmlacademy"
   ],
   "rules": {
-    "number-max-precision": 5
+    "number-max-precision": 6
   }
 }

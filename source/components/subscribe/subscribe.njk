@@ -2,7 +2,7 @@
   <h2 class="heading">{{ heading }}</h2>
   <p class="subscribe-description description">{{ description }}</p>
 
-  {% with getContext() | setProp("cssMix", "subscribe-form") | setProp("fieldType", "email") %}
-    {% include "components/form-mini/form-mini.njk" %}
-  {% endwith %}
+  {% set cssMix = "subscribe-form" %}
+  {% set fieldType = "email" %}
+  {% include "components/form-mini/form-mini.njk" %}
 </section>

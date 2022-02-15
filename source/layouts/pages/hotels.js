@@ -10,11 +10,13 @@
         list: [
           {
             value: 'pool',
-            title: 'Бассейн'
+            title: 'Бассейн',
+            checked: true
           },
           {
             value: 'parking',
-            title: 'Парковка'
+            title: 'Парковка',
+            checked: true
           },
           {
             value: 'wi-fi',
@@ -29,7 +31,8 @@
         list: [
           {
             value: 'hotel',
-            title: 'Гостиница'
+            title: 'Гостиница',
+            checked: true
           },
           {
             value: 'motel',
@@ -47,7 +50,7 @@
         type: 'number',
         name: 'price[]',
         min: 0,
-        max: 10000,
+        max: 11100,
         step: 100,
         list: [
           {

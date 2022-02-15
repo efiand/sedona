@@ -1,7 +1,5 @@
 <header class="main-header {{ cssMix }}">
   <h1 class="main-header-heading">{{ heading }}</h1>
 
-  {% with getContext() %}
-    {% include "components/breadcrumbs/breadcrumbs.njk" %}
-  {% endwith %}
+  {% include "components/breadcrumbs/breadcrumbs.njk" %}
 </header>

@@ -16,7 +16,7 @@
 }
 
 .cards-item {
-  padding: 98px 75px 108px;
+  padding: 98px 4rem 6rem;
   text-align: center;
   background-color: var(--color-cold-lite-12);
 
@@ -51,7 +51,7 @@
 
 .cards-group {
   & .cards-item:not(.cards-item-accent) {
-    padding-bottom: 90px;
+    padding-bottom: 5rem;
   }
 
   & .cards-item:nth-of-type(2n) {
@@ -70,14 +70,14 @@
   text-transform: uppercase;
 
   &-icon {
-    margin-bottom: 18px;
+    margin-bottom: 1rem;
 
     &::before {
       content: "";
       display: block;
       width: 84px;
       height: 84px;
-      margin: -18px auto 20px;
+      margin: -1rem auto 20px;
       background-color: var(--color-cold-lite);
     }
 
@@ -96,7 +96,7 @@
 }
 
 .cards-text {
-  margin: 18px 0 0;
+  margin: 1rem 0 0;
   color: var(--color-dark);
 }
 

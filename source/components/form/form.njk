@@ -18,11 +18,11 @@
             id="{{ group.id }}"
             name="{{ section.name }}"
             value="{{ group.value }}"
-            {{ 'aria-describedby=tooltip-' + group.id if group.tooltip }}
-            {{ 'type=number' if section.counters }}
-            {{ 'min=' + group.min if group.min }}
-            {{ 'max=' + group.max if group.min }}
-            {{ 'required' if group.required }}
+            {{ "aria-describedby=tooltip-" + group.id if group.tooltip }}
+            {{ "type=number" if section.counters }}
+            {{ "min=" + group.min if group.min }}
+            {{ "max=" + group.max if group.min }}
+            {{ "required" if group.required }}
           />
           {% if group.tooltip %}
             <span class="form-tooltip" aria-hidden="true">

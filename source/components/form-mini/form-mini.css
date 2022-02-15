@@ -8,7 +8,7 @@
 
 .form-mini-field {
   width: 100%;
-  padding: 18px 22px 16px;
+  padding: 1rem 22px 16px;
   line-height: 26px;
   background-color: var(--color-lite);
   border-radius: 10px 0 0 10px;

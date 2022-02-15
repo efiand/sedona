@@ -28,6 +28,7 @@ module.exports = {
     env.addGlobal('getContext', function () {
       return this.ctx;
     });
+    env.addGlobal('getGlobal', (key) => data[key]);
     env.addFilter('keys', Object.keys);
     for (const utilName of Object.keys(Util)) {
       env.addFilter(utilName, Util[utilName]);

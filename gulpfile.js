@@ -44,8 +44,8 @@ const Path = {
   }
 };
 if (!IS_DEV) {
-  Path.Build.CSS.push('!source/styles/entries/dev.css');
-  Path.Build.JS.push('!source/scripts/entries/dev.js');
+  Path.Build.CSS.push('!source/styles/dev.css');
+  Path.Build.JS.push('!source/scripts/dev.js');
 }
 
 const buildHTML = () => src('source/layouts/pages/**/*.njk')

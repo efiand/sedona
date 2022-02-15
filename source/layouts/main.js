@@ -2,6 +2,7 @@
   projectName: 'Sedona',
   title: 'Страница в разработке',
   heading: 'Страница в разработке',
+  lang: 'ru',
   logoTitle: 'Логотип Седоны',
   nav: {
     pages: [

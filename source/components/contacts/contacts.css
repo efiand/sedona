@@ -3,7 +3,7 @@
   align-items: center;
   grid-template-columns: 1fr auto 1fr;
   gap: 2rem;
-  padding: 40px 72px;
+  padding: 40px 4rem;
 }
 
 .contacts-tel {

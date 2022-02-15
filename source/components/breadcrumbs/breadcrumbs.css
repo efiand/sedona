@@ -8,8 +8,8 @@
 
 .breadcrumbs-item {
   position: relative;
-  margin-top: 18px;
-  padding-right: 26px;
+  margin-top: 1rem;
+  padding-right: 1.5rem;
 
   &::after {
     content: "";
