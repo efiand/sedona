@@ -12,11 +12,17 @@ export default class Range {
   }
 
   get _params() {
+    const min = parseInt(this._fromField.min, 10);
+    const max = parseInt(this._fromField.max, 10);
+
     return {
-      min: parseInt(this._fromField.min, 10),
-      max: parseInt(this._fromField.max, 10),
+      min,
+      max,
       step: parseInt(this._fromField.step, 10),
-      values: [this._fromField.value, this._toField.value]
+      values: [
+        this._fromField.value || min,
+        this._toField.value || max
+      ]
     };
   }
 

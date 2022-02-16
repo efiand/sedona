@@ -3,10 +3,10 @@
 
   {% with social %}{% include "components/social/social.njk" %}{% endwith %}
 
-  <a class="contacts-tel" href="tel:{{ tel | numberize }}">{{ tel }}</a>
+  <a class="contacts-link" href="tel:{{ tel | numberize }}">{{ tel }}</a>
 
   {% with dev %}
-    <a class="contacts-logo" href="{{ url }}">
+    <a class="contacts-link contacts-logo" href="{{ url }}">
       <img src="{{ logo }}" alt="{{ title | punctify }}" width="{{ width }}" height="{{ height }}">
     </a>
   {% endwith %}

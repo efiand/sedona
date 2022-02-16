@@ -11,10 +11,6 @@
     & .subscribe-description {
       color: inherit;
     }
-
-    & input {
-      background-color: var(--color-white);
-    }
   }
 }
 

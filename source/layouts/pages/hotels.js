@@ -11,7 +11,8 @@
           {
             value: 'pool',
             title: 'Бассейн',
-            checked: true
+            checked: true,
+            disabled: true
           },
           {
             value: 'parking',
@@ -32,7 +33,8 @@
           {
             value: 'hotel',
             title: 'Гостиница',
-            checked: true
+            checked: true,
+            disabled: true
           },
           {
             value: 'motel',

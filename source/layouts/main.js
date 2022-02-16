@@ -73,7 +73,7 @@
       url: 'https://htmlacademy.ru/',
       logo: 'images/logo-dev.svg',
       width: 115,
-      height: 33
+      height: 34
     }
   }
 });

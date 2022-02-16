@@ -17,6 +17,7 @@
                   type="{{ type }}"
                   value="{{ item.value }}"
                   {{ "checked" if item.checked }}
+                  {{ "disabled" if item.disabled }}
                 />
                 <label class="filter-choose filter-choose-{{ type }}" for="checker-{{ item.value }}">
                   {{ item.title }}

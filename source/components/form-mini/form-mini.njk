@@ -1,4 +1,9 @@
-<form class="form-mini {{ cssMix }}" action="https://echo.htmlacademy.ru" method="post">
+<form
+  class="form-mini {{ cssMix }}"
+  action="https://echo.htmlacademy.ru"
+  method="post"
+  data-validable-class="form-mini-validable"
+>
   <label class="form-mini-group">
     <span class="visually-hidden">{{ placeholder | punctify(':') }}</span>
     <input class="form-mini-field" type="{{ fieldType or 'text' }}" placeholder="{{ placeholder }}" required>

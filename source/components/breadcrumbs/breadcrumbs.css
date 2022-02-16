@@ -1,26 +1,30 @@
 .breadcrumbs {
   display: flex;
   flex-wrap: wrap;
-  margin: -20px 0 0;
+  margin: -8px 0 0 -6px; /* Компенсация отталкивания нижних рядов по вертикали и фокусных отступов по горизонтали */
   font-size: 16px;
-  line-height: 1.29375;
+  line-height: 21px;
 }
 
 .breadcrumbs-item {
   position: relative;
-  margin-top: 1rem;
-  padding-right: 1.5rem;
+  margin-top: 4px;
+  padding-right: 16px;
 
   &::after {
     content: "";
     position: absolute;
     top: 7px;
-    right: 9px;
+    right: 3px;
     width: 8px;
     height: 8px;
     background-color: currentColor;
     mask-image: url("../images/sprite.min.svg#arrow-right");
     opacity: 0.3;
+  }
+
+  &:first-child {
+    margin-left: 2px; /* Выравнивание иконки домика по левому краю */
   }
 
   &:last-child {
@@ -32,11 +36,35 @@
   }
 }
 
+.breadcrumbs-link {
+  padding: 0 6px;
+  text-decoration: none;
+  border-radius: 4px;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+}
+
 .breadcrumbs-root {
-  display: block;
-  width: 12px;
-  height: 12px;
-  margin: 4px 0 0;
-  background-color: currentColor;
-  mask-image: url("../images/sprite.min.svg#house-mini");
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  height: 21px;
+  padding: 0;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    background-color: currentColor;
+    mask-image: url("../images/sprite.min.svg#house-mini");
+  }
 }

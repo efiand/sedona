@@ -36,7 +36,7 @@
   flex-wrap: wrap;
   justify-content: flex-end;
   margin: 0;
-  padding: 14px 0;
+  padding: 14px 0 0;
 }
 
 .nav-service {
@@ -46,14 +46,15 @@
   align-items: center;
   width: 37px; /* Максимально возможные размеры для лучшего попадания с планшета */
   height: 37px;
-  margin-left: 5px;
+  margin: 0 0 14px 5px;
   text-decoration: none;
+  border-radius: 10px;
 
   &::before {
     content: "";
     width: 20px;
     height: 20px;
-    background-color: var(--color-black);
+    background-color: currentColor;
   }
 
   &-search::before {
@@ -62,6 +63,25 @@
 
   &-favorite::before {
     mask-image: url("../images/sprite.min.svg#favorite");
+  }
+}
+
+.nav-link,
+.nav-service {
+  &:hover {
+    color: var(--color-warm-lite);
+  }
+
+  &:focus {
+    color: initial;
+  }
+
+  &:active {
+    color: var(--color-warm-lite-30);
+
+    & .nav-notes {
+      color: var(--color-contrast-30);
+    }
   }
 }
 
@@ -74,14 +94,15 @@
   font-size: 10px;
   line-height: 13px;
   text-align: center;
-  color: var(--color-white);
+  color: var(--color-contrast);
   letter-spacing: -0.1em;
-  background-color: var(--color-neutral-lite);
+  background-color: var(--color-success);
   border-radius: 10px;
+  transition: inherit;
 }
 
 .nav-button {
   display: block;
   min-width: 160px;
-  margin-left: 22px;
+  margin: 0 0 14px 22px;
 }

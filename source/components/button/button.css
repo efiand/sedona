@@ -5,11 +5,21 @@
   font-size: 16px;
   line-height: 20px;
   text-align: center;
-  color: var(--color-white);
+  color: var(--color-contrast);
   text-transform: uppercase;
   text-decoration: none;
   background-color: var(--color-warm-lite);
   border-radius: 4px;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: var(--color-warm-dark);
+  }
+
+  &:active {
+    color: var(--color-contrast-30);
+  }
 
   &-big {
     padding: 19px 40px 15px;
@@ -22,7 +32,13 @@
     background-color: var(--color-cold-lite);
 
     &:focus-visible {
-      outline: 2px solid var(--color-warm-lite);
+      outline: 3px solid var(--color-warm-lite);
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--color-cold-dark);
     }
   }
 }

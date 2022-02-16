@@ -8,7 +8,7 @@
 
 .filter-section {
   width: 180px;
-  margin: 12px 0 2rem 2rem;
+  margin: 14px 0 2rem 2rem;
   padding: 0;
   border: none;
 
@@ -49,6 +49,7 @@
     display: block;
     width: 20px;
     height: 20px;
+    transition: opacity 0.2s ease-in-out;
   }
 
   &::before {
@@ -56,11 +57,14 @@
     border-radius: 4px;
   }
 
+  &:hover::before {
+    opacity: 0.6;
+  }
+
   &::after {
     background-color: var(--color-cold-havy);
     mask-image: url("../images/sprite.min.svg#checkbox");
     opacity: 0;
-    transition: opacity 0.2s ease-in-out;
   }
 
   &-radio {
@@ -74,8 +78,19 @@
   }
 }
 
-.filter-checker:checked ~ .filter-choose::after {
-  opacity: 1;
+.filter-checker {
+  &:disabled ~ .filter-choose::before {
+    opacity: 0.3;
+  }
+
+  &:focus-visible ~ .filter-choose::before {
+    outline: var(--focus-outline);
+    opacity: 0.6;
+  }
+
+  &:checked ~ .filter-choose::after {
+    opacity: 1;
+  }
 }
 
 .filter-range {
@@ -92,11 +107,28 @@
   width: 100%;
   padding-top: 13px;
   padding-bottom: 15px;
+
+  &:focus-visible {
+    outline: 3px solid var(--color-base);
+  }
 }
 
 .filter-reset {
-  margin-top: 15px;
-  padding: 4px; /* Для лучшего попадания с планшета */
+  margin-top: 20px;
+  padding: 1px 12px 2px;
   font: inherit;
   background-color: transparent;
+  border-radius: 4px;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:focus {
+    opacity: 1;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
 }

@@ -1,15 +1,20 @@
 html {
-  --color-black: #000000;
-  --color-black-30: rgba(0, 0, 0, 0.3);
-  --color-black-20: rgba(0, 0, 0, 0.2);
-  --color-black-15: rgba(0, 0, 0, 0.15);
+  --color-base: #000000;
+  --color-contrast: #ffffff;
+  --color-contrast-30: rgba(255, 255, 255, 0.3);
+  --color-base-60: rgba(0, 0, 0, 0.6);
+  --color-base-40: rgba(0, 0, 0, 0.4);
+  --color-base-30: rgba(0, 0, 0, 0.3);
+  --color-base-25: rgba(0, 0, 0, 0.25);
+  --color-base-20: rgba(0, 0, 0, 0.2);
+  --color-base-15: rgba(0, 0, 0, 0.15);
   --color-dark: #333333;
   --color-gray: #e5e5e5;
   --color-lite: #f2f2f2;
   --color-lite-80: rgba(242, 242, 242, 0.8);
-  --color-white: #ffffff;
   --color-warm-dark: #615048;
   --color-warm-lite: #756257;
+  --color-warm-lite-30: rgba(117, 98, 87, 0.3);
   --color-neutral-dark: #6c9e42;
   --color-neutral-lite: #7db54f;
   --color-cold-havy: #3f5e72;
@@ -18,8 +23,10 @@ html {
   --color-cold-lite-20: rgba(131, 179, 211, 0.2);
   --color-cold-lite-12: rgba(131, 179, 211, 0.12);
   --color-error: #ff5757;
+  --color-error-dark: #bf3535;
   --color-warn: #fd922e;
   --color-success: #7db550;
+  --focus-outline: 3px solid var(--color-cold-lite);
 
   min-width: 320px;
   overflow-y: scroll;
@@ -34,15 +41,21 @@ body {
 }
 
 a,
-button {
-  color: inherit;
+button,
+input,
+select {
+  font-family: inherit;
   transition-timing-function: ease-in-out;
-  transition-duration: 0.3s;
-  transition-property: color, opacity;
+  transition-duration: 0.2s;
+  transition-property: color, opacity, background-color, border-color, box-shadow;
+}
+
+a {
+  color: inherit;
 }
 
 button {
-  font-family: inherit;
+  color: inherit;
   border: none;
 }
 
@@ -80,7 +93,7 @@ img {
 }
 
 :focus {
-  outline: 2px solid var(--color-cold-lite);
+  outline: var(--focus-outline);
 
   @supports selector(:focus-visible) {
     outline: none;
@@ -88,5 +101,5 @@ img {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-cold-lite);
+  outline: var(--focus-outline);
 }

@@ -67,19 +67,43 @@
   right: 16px;
   width: 20px;
   height: 20px;
-  background-color: var(--color-black-30);
+  background-color: transparent;
+  border-radius: 4px;
+  opacity: 0.3;
 
-  &-datepicker {
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: currentColor;
+  }
+
+  &-datepicker::before {
     mask-image: url("../images/sprite.min.svg#date");
   }
 
-  &-step-up {
+  &-step-up::before {
     mask-image: url("../images/sprite.min.svg#plus");
   }
 
   &-step-down {
     right: 98px;
-    mask-image: url("../images/sprite.min.svg#minus");
+
+    &::before {
+      mask-image: url("../images/sprite.min.svg#minus");
+    }
+  }
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+
+  &:active::before {
+    opacity: 0.2;
   }
 }
 
@@ -90,7 +114,7 @@
   width: 25px;
   height: 25px;
   margin: 14px 20px 0 0;
-  color: var(--color-white);
+  color: var(--color-contrast);
   background-color: var(--color-cold-lite);
   border-radius: 50%;
   cursor: help;
@@ -107,6 +131,8 @@
   &:hover,
   &:focus-within,
   .form-field:focus + & {
+    background-color: var(--color-cold-dark);
+
     & .form-tooltip-content {
       visibility: visible;
       opacity: 1;
@@ -125,7 +151,7 @@
   line-height: 20px;
   background-color: var(--color-dark);
   border-radius: 10px;
-  box-shadow: 0 15px 30px var(--color-black-30);
+  box-shadow: 0 15px 30px var(--color-base-30);
   transform: translateX(-50%);
   visibility: hidden;
   opacity: 0.01;

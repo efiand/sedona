@@ -2,6 +2,7 @@ import Modal from '../components/modal/modal.js';
 import Range from '../components/range/range.js';
 
 export * from './modules/breakpoints.js';
+export * from './modules/set-validity.js';
 
 // Открываем все контролы, бессмысленные без наличия JS
 for (const noJsHiddenEl of document.querySelectorAll('.no-js-hidden')) {

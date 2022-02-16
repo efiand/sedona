@@ -1,24 +1,44 @@
 .social {
   display: flex;
-  margin: 0 0 -24px 0;
+  margin: -14px 0 0 -18px; /* Смещение влево учитывает компенсацию пустого места в левой части иконок */
 }
 
 .social-link {
-  display: block;
-  width: 20px;
-  height: 20px;
-  margin: 0 24px 24px 0;
-  background-color: var(--color-cold-lite);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  margin: 10px 0 0 10px;
+  color: var(--color-cold-lite);
+  border-radius: 10px;
 
-  &-facebook {
+  &::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: currentColor;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: var(--color-cold-dark);
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+
+  &-facebook::before {
     mask-image: url("../images/sprite.min.svg#social-facebook");
   }
 
-  &-twitter {
+  &-twitter::before {
     mask-image: url("../images/sprite.min.svg#social-twitter");
   }
 
-  &-youtube {
+  &-youtube::before {
     mask-image: url("../images/sprite.min.svg#social-youtube");
   }
 }

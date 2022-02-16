@@ -1,10 +1,10 @@
 <ol class="breadcrumbs {{ cssMix }}">
   <li class="breadcrumbs-item">
-    <a class="breadcrumbs-root" href="{{ nav.pages[0].url }}">
+    <a class="breadcrumbs-link breadcrumbs-root" href="{{ nav.pages[0].url }}">
       <span class="visually-hidden">{{ nav.pages[0].title | punctify }}</span>
     </a>
   </li>
   <li class="breadcrumbs-item">
-    <a class="breadcrumbs-link breadcrumbs-link-current">{{ title }}</a>
+    <a class="breadcrumbs-link" href="{{ getGlobal('page') }}.html">{{ title }}</a>
   </li>
 </ol>
