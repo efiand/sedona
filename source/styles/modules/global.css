@@ -48,6 +48,10 @@ select {
   transition-timing-function: ease-in-out;
   transition-duration: 0.2s;
   transition-property: color, opacity, background-color, border-color, box-shadow;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 
 a {

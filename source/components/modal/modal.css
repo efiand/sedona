@@ -59,4 +59,14 @@
     background-color: currentColor;
     mask-image: url("../images/sprite.min.svg#cross");
   }
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: var(--color-gray);
+  }
+
+  &:active::before {
+    opacity: 0.3;
+  }
 }

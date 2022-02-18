@@ -9,7 +9,7 @@
           </label>
 
           {% if section.counters %}
-            <button class="form-control form-control-step-down no-js-hidden" type="button">
+            <button class="form-button form-button-step-down no-js-hidden" type="button">
               <span class="visually-hidden">{{ stepDownTitle | punctify }}</span>
             </button>
           {% endif %}
@@ -18,6 +18,8 @@
             id="{{ group.id }}"
             name="{{ section.name }}"
             value="{{ group.value }}"
+            placeholder="{{ group.placeholder }}"
+            {{ 'pattern="' + group.pattern + '"' if group.pattern }}
             {{ "aria-describedby=tooltip-" + group.id if group.tooltip }}
             {{ "type=number" if section.counters }}
             {{ "min=" + group.min if group.min }}
@@ -31,16 +33,19 @@
               </span>
             </span>
           {% endif %}
-          <span class="form-status {{ 'form-status-error' if group.error }}">{{ group.status }}</span>
 
           {% if section.counters %}
-            <button class="form-control form-control-step-up no-js-hidden" type="button">
+            <button class="form-button form-button-step-up no-js-hidden" type="button">
               <span class="visually-hidden">{{ stepUpTitle | punctify }}</span>
             </button>
-          {% elif group.datepickerTitle %}
-            <button class="form-control form-control-datepicker no-js-hidden" type="button">
-              <span class="visually-hidden">{{ group.datepickerTitle | punctify }}</span>
-            </button>
+          {% else %}
+            <span class="form-status"></span>
+
+            {%if group.datepickerTitle %}
+              <button class="form-button form-button-datepicker no-js-hidden" type="button">
+                <span class="visually-hidden">{{ group.datepickerTitle | punctify }}</span>
+              </button>
+            {% endif %}
           {% endif %}
         </p>
       {% endfor %}

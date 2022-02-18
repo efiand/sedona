@@ -77,20 +77,17 @@
             groups: [
               {
                 title: 'Дата заезда',
-                id: 'date-from',
-                value: '27 апреля 2020',
-                status: 'Мы не можем отправить вас в прошлое.',
-                error: true
+                id: 'date-from'
               },
               {
                 title: 'Дата выезда',
-                id: 'date-to',
-                value: '1 сентября 2021',
-                status: 'На эти даты есть свободные номера. Пока есть.'
+                id: 'date-to'
               }
             ].map((group) => ({
               ...group,
               required: true,
+              placeholder: 'Укажите дату',
+              pattern: `^\\d{1,2} (${data.js.monthsInGenitive.map((m) => `(${m})`).join('|')}) \\d{4}$`,
               datepickerTitle: 'Выбрать дату'
             }))
           },
@@ -102,17 +99,17 @@
               {
                 title: 'Взрослые',
                 id: 'count-adults',
-                value: 2,
-                min: 1,
-                max: 99,
+                value: '2',
+                min: '1',
+                max: '99',
                 required: true
               },
               {
                 title: 'Дети',
                 id: 'count-children',
-                value: 1,
-                min: 0,
-                max: 99,
+                value: '1',
+                min: '0',
+                max: '99',
                 tooltip: 'Укажите количество детей, которые будут с вами, возраст которых от 6 до 18 лет. Дети до 6 лет размещаются бесплатно.',
                 required: true
               }

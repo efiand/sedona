@@ -1,5 +1,7 @@
 import noUiSlider from 'nouislider';
 
+const messages = window.Data.messages.Range;
+
 export default class Range {
   constructor(el) {
     this._el = el;
@@ -12,25 +14,21 @@ export default class Range {
   }
 
   get _params() {
-    const min = parseInt(this._fromField.min, 10);
-    const max = parseInt(this._fromField.max, 10);
-
     return {
-      min,
-      max,
-      step: parseInt(this._fromField.step, 10),
-      values: [
-        this._fromField.value || min,
-        this._toField.value || max
-      ]
+      min: parseInt(this._fromField.min, 10),
+      max: parseInt(this._fromField.max, 10),
+      step: parseInt(this._fromField.step, 10)
     };
   }
 
   _init() {
-    const { min, max, step, values } = this._params;
+    const { min, max, step } = this._params;
 
     noUiSlider.create(this._slider, {
-      start: values,
+      start: [
+        this._fromField.value || min,
+        this._toField.value || max
+      ],
       connect: true,
       range: {
         min,
@@ -40,10 +38,10 @@ export default class Range {
       cssPrefix: 'range-slider-',
       handleAttributes: [
         {
-          'aria-label': 'Меньше.'
+          'aria-label': messages.DOWN
         },
         {
-          'aria-label': 'Больше.'
+          'aria-label': messages.UP
         }
       ]
     });
@@ -51,11 +49,11 @@ export default class Range {
 
   _setListeners() {
     this._handleUpdate = this._handleUpdate.bind(this);
-    this._handleInput = this._handleInput.bind(this);
+    this._handleChange = this._handleChange.bind(this);
 
     this._slider.noUiSlider.on('update', this._handleUpdate);
-    this._fromField.addEventListener('input', this._handleInput);
-    this._toField.addEventListener('input', this._handleInput);
+    this._fromField.addEventListener('change', this._handleChange);
+    this._toField.addEventListener('change', this._handleChange);
   }
 
   _handleUpdate([startValue, endValue]) {
@@ -63,7 +61,7 @@ export default class Range {
     this._toField.value = parseInt(endValue, 10);
   }
 
-  _handleInput() {
-    this._slider.noUiSlider.set(this._params.values);
+  _handleChange() {
+    this._slider.noUiSlider.set([this._fromField.value, this._toField.value]);
   }
 }

@@ -34,9 +34,10 @@
 }
 
 .form-field {
-  padding: 4px 20px 6px;
+  padding: 2px 20px 4px;
   font-weight: 700;
   background-color: var(--color-lite);
+  border: 2px solid transparent;
   border-radius: 4px;
 
   &:not(&-counter) {
@@ -47,10 +48,20 @@
     max-width: 132px;
     text-align: center;
   }
+
+  &:hover,
+  &:focus {
+    background-color: var(--color-gray);
+  }
+
+  &:active {
+    background-color: var(--color-contrast);
+    border-color: currentColor;
+  }
 }
 
 .form-status {
-  grid-column: 2 / -1;
+  width: calc(100% - 155px);
   margin-left: 155px;
   font-size: 16px;
   line-height: 26px;
@@ -61,7 +72,7 @@
   }
 }
 
-.form-control {
+.form-button {
   position: absolute;
   top: 15px;
   right: 16px;
@@ -79,6 +90,7 @@
     bottom: 0;
     left: 0;
     background-color: currentColor;
+    transition: inherit;
   }
 
   &-datepicker::before {
@@ -97,13 +109,18 @@
     }
   }
 
-  &:hover,
+  &:hover:not(:disabled),
   &:focus {
     opacity: 1;
   }
 
-  &:active::before {
+  &:active::before,
+  &:disabled::before {
     opacity: 0.2;
+  }
+
+  &-active {
+    color: var(--color-cold-lite);
   }
 }
 

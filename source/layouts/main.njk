@@ -43,6 +43,9 @@
       </ul>
       <script src="scripts/dev.min.js"></script>
     {% endif %}
+    <script>
+      window.Data = {{ jsToPlace }};
+    </script>
     <script src="scripts/scripts.min.js"></script>
   </body>
 </html>

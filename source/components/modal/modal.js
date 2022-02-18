@@ -46,8 +46,6 @@ export default class Modal {
   }
 
   _handleOverlayClose(evt) {
-    evt.preventDefault();
-
     if (evt.target === this._el) {
       this._close();
     }

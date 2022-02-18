@@ -17,6 +17,9 @@ const Util = {
   numberize(str) {
     const numberized = str.replace(/\D/g, '');
     return str.slice(0, 1) === '+' ? `+${numberized}` : numberized;
+  },
+  formatNumberWithLeadZero(number) {
+    return `${number < 10 ? '0' : ''}${number}`;
   }
 };
 
