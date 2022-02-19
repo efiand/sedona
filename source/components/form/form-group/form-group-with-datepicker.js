@@ -12,7 +12,6 @@ export default class FormGroupWithDatepicker extends FormGroup {
 
     this._datepicker = this._group.querySelector('.form-button-datepicker');
     this._calendar = null;
-    this._availableDates = new Set();
 
     this._setListeners();
   }
@@ -41,7 +40,7 @@ export default class FormGroupWithDatepicker extends FormGroup {
           return resolve(false);
         }
 
-        this._checkAvailability(ts).then((isAvailable) => {
+        this._checkAvailability().then((isAvailable) => {
           this._setStatus(isAvailable ? messages.HAS : messages.HAS_NO, !isAvailable);
           return resolve(isAvailable);
         });
@@ -100,23 +99,12 @@ export default class FormGroupWithDatepicker extends FormGroup {
     this.checkValidity();
   }
 
-  _checkAvailability(ts) {
+  _checkAvailability() {
     return new Promise((resolve) => {
-      // Достаём из кэша
-      if (this._availableDates.has(ts)) {
-        return resolve(true);
-      }
-
       this._setStatus(messages.PENDING, false);
 
       // Фейковый метод проверки наличия мест
-      setTimeout(() => {
-        const res = Math.random() > 0.5;
-        if (res) {
-          this._availableDates.add(ts);
-        }
-        return resolve(res);
-      }, TIMEOUT);
+      setTimeout(() => resolve(Math.random() > 0.5), TIMEOUT);
     });
   }
 }
