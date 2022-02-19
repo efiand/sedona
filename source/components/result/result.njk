@@ -4,15 +4,11 @@
     <span class="result-count">{{ count }}</span>
   </h2>
 
-  {% with sort %}
-    <label aria-label="{{ title | punctify }}">
-      <select class="result-sort" name="sorting-dir" data-submit>
-        {% for option in options %}
-          <option value="{{ option.value }}">{{ option.title }}</option>
-        {% endfor %}
-      </select>
-    </label>
-  {% endwith %}
+  <label aria-label="{{ sortTitle | punctify }}">
+    {% with select | setProp("cssMix", "result-sort") | setProp("submit", true) %}
+      {% include "components/select/select.njk" %}
+    {% endwith %}
+  </label>
 
   <ul class="result-mode" aria-label="{{ modesTitle | punctify }}">
     {% for mode in modes %}

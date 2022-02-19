@@ -1,0 +1,21 @@
+.select {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+.select-control {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 9px 18px 12px;
+  font-size: 18px;
+  line-height: 1.294;
+  background-color: transparent;
+  border: 2px solid var(--color-gray);
+  border-radius: 4px;
+  appearance: none;
+}

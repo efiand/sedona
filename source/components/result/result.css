@@ -1,0 +1,18 @@
+.result {
+  display: flex;
+  padding: 44px 72px;
+}
+
+.result-heading {
+  width: 50%;
+  margin: 4px 0 0;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.294;
+  text-transform: uppercase;
+}
+
+.result-sort {
+  display: block;
+  width: 16rem;
+}

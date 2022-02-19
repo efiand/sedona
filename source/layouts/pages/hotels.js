@@ -72,8 +72,9 @@
   result: {
     title: 'Найдено гостиниц',
     count: 38,
-    sort: {
-      title: 'Сортировка',
+    sortTitle: 'Сортировка',
+    select: {
+      name: 'sorting-dir',
       options: [
         {
           value: 'price-up',
@@ -167,5 +168,18 @@
     }))
   },
   limitsTitle: 'Гостиниц на странице',
-  limits: [4, 6, 12]
+  limitsSelect: {
+    name: 'limit',
+    options: [
+      {
+        value: '4'
+      },
+      {
+        value: '6'
+      },
+      {
+        value: '12'
+      }
+    ]
+  }
 });

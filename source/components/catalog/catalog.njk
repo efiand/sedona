@@ -27,11 +27,9 @@
     <label class="catalog-limit">
       {{ limitsTitle | punctify(":") }}
 
-      <select class="catalog-limit-list" name="limit" data-submit>
-        {% for limit in limits %}
-          <option>{{ limit }}</option>
-        {% endfor %}
-      </select>
+      {% with limitsSelect | setProp("cssMix", "catalog-limit-list") | setProp("submit", true) %}
+        {% include "components/select/select.njk" %}
+      {% endwith %}
     </label>
   </form>
 </section>
