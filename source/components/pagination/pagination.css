@@ -1,0 +1,22 @@
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -8px 0 0 -8px;
+}
+
+.pagination-item {
+  margin: 8px 0 0 8px;
+}
+
+.pagination-link {
+  min-width: 55px;
+  padding: 14px 16px 15px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 26px;
+  border-radius: 4px;
+
+  &-current {
+    background-color: var(--color-lite);
+  }
+}

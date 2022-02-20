@@ -13,18 +13,45 @@
   <ul class="result-mode" aria-label="{{ modesTitle | punctify }}">
     {% for mode in modes %}
       <li>
-        <label class="result-mode-item result-mode-item-{{ mode.value }}">
+        <input
+          class="result-mode-choose visually-hidden"
+          id="sorting-type-{{ mode.value }}"
+          name="sorting-type"
+          type="radio"
+          value="{{ mode.value }}"
+          {{ "checked" if mode.checked }}
+          data-submit
+        />
+        <label class="result-mode-item result-mode-item-{{ mode.value }}" for="sorting-type-{{ mode.value }}">
           <span class="visually-hidden">{{ mode.title | punctify }}</span>
-          <input
-            class="result-mode-choose"
-            name="sorting-type"
-            type="radio"
-            value="{{ mode.value }}"
-            {{ "checked" if mode.checked }}
-            data-submit
-          />
         </label>
       </li>
     {% endfor %}
   </ul>
+
+  <ul class="result-list">
+    {% for good in goods %}
+      {% with good | setProp("tag", "li") | setProp("cssMix", "result-item") %}
+        {% include "components/good/good.njk" %}
+      {% endwith %}
+    {% endfor %}
+  </ul>
+
+  <p class="result-more">
+    <button class="button button-big button-secondary result-more-button" name="limit" type="submit" value="{{ limits[1] }}">
+      {{ moreTitle }}
+    </button>
+  </p>
+
+  {% with pager | setProp("cssMix", "result-pagination") %}
+    {% include "components/pagination/pagination.njk" %}
+  {% endwith %}
+
+  <label class="result-limit">
+    {{ limitsTitle | punctify(":") }}
+
+    {% with limitsSelect | setProp("cssMix", "result-limit-list") | setProp("submit", true) %}
+      {% include "components/select/select.njk" %}
+    {% endwith %}
+  </label>
 </div>

@@ -2,7 +2,7 @@
   {% for item in list %}
     <li class="pagination-item">
       <button
-        class="pagination-link {{ 'pagination-link-current' if item.current }}"
+        class="pagination-link {{ 'pagination-link-current' if item.current else 'button button-secondary' }}"
         name="page"
         type="submit"
         value="{{ item.value }}"

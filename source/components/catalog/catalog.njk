@@ -7,29 +7,5 @@
     </div>
 
     {% with result %}{% include "components/result/result.njk" %}{% endwith %}
-
-    <ul class="catalog-list">
-      {% for good in goods %}
-        {% with good | setProp("tag", "li") | setProp("cssMix", "catalog-item") %}
-          {% include "components/good/good.njk" %}
-        {% endwith %}
-      {% endfor %}
-    </ul>
-
-    <button class="button button-big button-secondary catalog-more" name="limit" type="submit" value="{{ limits[1] }}">
-      {{ moreTitle }}
-    </button>
-
-    {% with pager | setProp("cssMix", "catalog-pagination") %}
-      {% include "components/pagination/pagination.njk" %}
-    {% endwith %}
-
-    <label class="catalog-limit">
-      {{ limitsTitle | punctify(":") }}
-
-      {% with limitsSelect | setProp("cssMix", "catalog-limit-list") | setProp("submit", true) %}
-        {% include "components/select/select.njk" %}
-      {% endwith %}
-    </label>
   </form>
 </section>

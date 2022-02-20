@@ -60,7 +60,7 @@
             title: 'От'
           },
           {
-            value: 9000,
+            value: 11100,
             title: 'До'
           }
         ]
@@ -101,85 +101,85 @@
         value: 'list',
         title: 'Списком'
       }
-    ]
-  },
-  goods: [
-    {
-      title: 'Amara Resort &amp; Spa',
-      src: 'images/hotel-1.jpg',
-      price: 'От 4000 ₽',
-      starRating: 4,
-      rating: '8,5'
-    },
-    {
-      title: 'Desert Quail Inn',
-      src: 'images/hotel-2.jpg',
-      price: 'От 3000 ₽',
-      starRating: 3,
-      rating: '8,9'
-    },
-    {
-      title: 'Villas at Poco Diablo',
-      src: 'images/hotel-3.jpg',
-      price: 'От 2000 ₽',
-      starRating: 2,
-      rating: '9,2',
-      favorited: true
-    },
-    {
-      title: 'GreenTree Inn',
-      src: 'images/hotel-4.jpg',
-      price: 'От 3000 ₽',
-      starRating: 2,
-      rating: '9,2'
-    }
-  ].map((item) => {
-    const { src, favorited = false } = item;
-    return {
-      ...item,
-      image: {
-        src,
-        alt: item.title,
-        width: 300,
-        height: 206
+    ],
+    goods: [
+      {
+        title: 'Amara Resort &amp; Spa',
+        src: 'images/hotel-1.jpg',
+        price: 'От 4000 ₽',
+        starRating: 4,
+        rating: '8,5'
       },
-      type: 'Гостиница',
-      links: [
+      {
+        title: 'Desert Quail Inn',
+        src: 'images/hotel-2.jpg',
+        price: 'От 3000 ₽',
+        starRating: 3,
+        rating: '8,9'
+      },
+      {
+        title: 'Villas at Poco Diablo',
+        src: 'images/hotel-3.jpg',
+        price: 'От 2000 ₽',
+        starRating: 2,
+        rating: '9,2',
+        favorited: true
+      },
+      {
+        title: 'GreenTree Inn',
+        src: 'images/hotel-4.jpg',
+        price: 'От 3000 ₽',
+        starRating: 2,
+        rating: '9,2'
+      }
+    ].map((item) => {
+      const { src, favorited = false } = item;
+      return {
+        ...item,
+        image: {
+          src,
+          alt: item.title,
+          width: 300,
+          height: 206
+        },
+        type: 'Гостиница',
+        links: [
+          {
+            url: 'blank.html',
+            title: 'Подробнее'
+          },
+          {
+            url: 'blank.html',
+            title: favorited ? 'В избранном' : 'В избранное',
+            type: favorited ? 'active' : 'secondary'
+          }
+        ],
+        starRatingTitle: 'Звёздный рейтинг',
+        ratingTitle: 'Рейтинг'
+      };
+    }),
+    moreTitle: 'Загрузить ещё',
+    pager: {
+      list: [1, 2, 3, 4, 5, 10].map((item, i, arr) => ({
+        value: item,
+        title: i === arr.length - 2 ? '...' : item,
+        current: i === 0
+      }))
+    },
+    limitsTitle: 'Гостиниц на странице',
+    limitsSelect: {
+      name: 'limit',
+      options: [
         {
-          url: 'blank.html',
-          title: 'Подробнее'
+          value: '4'
         },
         {
-          url: 'blank.html',
-          title: favorited ? 'В избранном' : 'В избранное',
-          type: favorited ? 'active' : 'secondary'
+          value: '6'
+        },
+        {
+          value: '12'
         }
-      ],
-      starRatingTitle: 'Звёздный рейтинг',
-      ratingTitle: 'Рейтинг'
-    };
-  }),
-  moreTitle: 'Загрузить ещё',
-  pager: {
-    list: [1, 2, 3, 4, 5, 10].map((item, i, arr) => ({
-      value: item,
-      title: i === arr.length - 2 ? '...' : item,
-      current: i === 0
-    }))
-  },
-  limitsTitle: 'Гостиниц на странице',
-  limitsSelect: {
-    name: 'limit',
-    options: [
-      {
-        value: '4'
-      },
-      {
-        value: '6'
-      },
-      {
-        value: '12'
-      }
-    ]
+      ]
+    }
   }
 });

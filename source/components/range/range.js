@@ -21,6 +21,11 @@ export default class Range {
     };
   }
 
+  reset() {
+    const { min, max } = this._params;
+    this._slider.noUiSlider.set([min, max]);
+  }
+
   _init() {
     const { min, max, step } = this._params;
 

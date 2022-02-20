@@ -2,20 +2,42 @@
   position: relative;
 
   &::after {
+    content: "";
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 14px;
+    right: 17px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-base-30);
+    mask-image: url("../images/sprite.min.svg#arrow-down");
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  &:active::after {
+    background-color: var(--color-gray);
   }
 }
 
 .select-control {
   box-sizing: border-box;
   width: 100%;
-  padding: 9px 18px 12px;
+  padding: 9px 50px 12px 18px;
   font-size: 18px;
-  line-height: 1.294;
+  line-height: 23px;
+  color: var(--color-dark);
   background-color: transparent;
   border: 2px solid var(--color-gray);
   border-radius: 4px;
+  outline: none;
   appearance: none;
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--color-cold-lite);
+  }
+
+  &:active {
+    color: var(--color-dark-30);
+    border-color: var(--color-gray);
+  }
 }

@@ -1,6 +1,7 @@
 import Form from '../components/form/form.js';
 import Modal from '../components/modal/modal.js';
 import Range from '../components/range/range.js';
+import Catalog from '../components/catalog/catalog.js';
 
 export * from './modules/breakpoints.js';
 export * from './modules/set-validity.js';
@@ -18,6 +19,11 @@ for (const modalEl of document.querySelectorAll('.modal')) {
   new Modal(modalEl);
 }
 
-for (const rangeEl of document.querySelectorAll('.range')) {
-  new Range(rangeEl);
+for (const catalogEl of document.querySelectorAll('.catalog')) {
+  const ranges = [];
+  for (const rangeEl of document.querySelectorAll('.range')) {
+    ranges.push(new Range(rangeEl));
+  }
+
+  new Catalog(catalogEl, ranges);
 }

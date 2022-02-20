@@ -41,4 +41,18 @@
       background-color: var(--color-cold-dark);
     }
   }
+
+  &-active {
+    background-color: var(--color-neutral-lite);
+
+    &:focus-visible {
+      outline: 3px solid var(--color-warm-lite);
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--color-neutral-dark);
+    }
+  }
 }

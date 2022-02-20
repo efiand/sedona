@@ -42,8 +42,6 @@
 .nav-service {
   position: relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
   width: 37px; /* Максимально возможные размеры для лучшего попадания с планшета */
   height: 37px;
   margin: 0 0 14px 5px;
@@ -54,6 +52,7 @@
     content: "";
     width: 20px;
     height: 20px;
+    margin: auto;
     background-color: currentColor;
   }
 
