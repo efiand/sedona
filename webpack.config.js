@@ -6,13 +6,13 @@ export default {
     minimize: true,
     minimizer: [
       new TerserPlugin({
+        extractComments: false,
         parallel: true,
         terserOptions: {
           format: {
             comments: false
           }
-        },
-        extractComments: false
+        }
       })
     ]
   },

@@ -1,23 +1,23 @@
+import browsersync from 'browser-sync';
+import clean from 'gulp-clean';
+import del from 'del';
+import eslint from 'gulp-eslint';
 import gulp from 'gulp';
-import posthtml from 'gulp-posthtml';
-import postcss from 'gulp-postcss';
-import vinylNamed from 'vinyl-named';
-import webpack from 'webpack';
-import webpackStream from 'webpack-stream';
-import webpackConfig from './webpack.config.js';
 import imagemin from 'gulp-imagemin';
-import svgo from 'imagemin-svgo';
-import svgoConfig from './svgo.config.js';
+import lintspaces from 'gulp-lintspaces';
 import mozjpeg from 'imagemin-mozjpeg';
 import pngquant from 'imagemin-pngquant';
-import clean from 'gulp-clean';
-import webp from 'gulp-webp';
-import stackSprite from 'gulp-svg-sprite';
-import eslint from 'gulp-eslint';
-import lintspaces from 'gulp-lintspaces';
+import postcss from 'gulp-postcss';
+import posthtml from 'gulp-posthtml';
 import rename from 'gulp-rename';
-import browsersync from 'browser-sync';
-import del from 'del';
+import stackSprite from 'gulp-svg-sprite';
+import svgo from 'imagemin-svgo';
+import svgoConfig from './svgo.config.js';
+import vinylNamed from 'vinyl-named';
+import webp from 'gulp-webp';
+import webpack from 'webpack';
+import webpackConfig from './webpack.config.js';
+import webpackStream from 'webpack-stream';
 
 const { src, dest, watch, series, parallel } = gulp;
 const server = browsersync.create();
@@ -27,20 +27,20 @@ const checkLintspaces = () => lintspaces({
 });
 
 const Path = {
-  DIST: 'public',
   Build: {
     CSS: ['source/styles/*.css'],
     JS: ['source/scripts/*.js']
   },
+  DIST: 'public',
   Watch: {
-    HTML: 'source/**/*.njk',
     CSS: 'source/**/*.css',
-    JS: ['*.{js,cjs}', 'source/**/*.js'],
+    HTML: 'source/**/*.njk',
+    ICONS: 'place/icons/**/*.{svg,png}',
     IMG: 'place/images/**/*.{svg,png,jpg}',
     IMG_DEST: 'public/images/**/*.{png,jpg}',
-    ICONS: 'place/icons/**/*.{svg,png}',
-    SPRITE: 'source/icons/*.svg',
-    PP: 'source/pixelperfect/*.{jpg,png,svg}'
+    JS: ['*.{js,cjs}', 'source/**/*.{js,cjs}'],
+    PP: 'source/pixelperfect/*.{jpg,png,svg}',
+    SPRITE: 'source/icons/*.svg'
   }
 };
 if (!IS_DEV) {
@@ -66,7 +66,10 @@ const buildJS = () => src(Path.Build.JS)
 const saveImages = () => src(Path.Watch.IMG)
   .pipe(imagemin([
     svgo(svgoConfig),
-    mozjpeg({ quality: 75, progressive: true }),
+    mozjpeg({
+      progressive: true,
+      quality: 75
+    }),
     pngquant()
   ]))
   .pipe(clean())
@@ -117,9 +120,9 @@ const reload = (done) => {
 const startServer = () => {
   server.init({
     cors: true,
+    open: false,
     server: Path.DIST,
-    ui: false,
-    open: false
+    ui: false
   });
 
   watch(Path.Watch.HTML, series(testHTML, buildHTML, reload));

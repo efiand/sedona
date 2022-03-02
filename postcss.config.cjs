@@ -1,6 +1,6 @@
 module.exports = {
   plugins: {
-    'stylelint': {},
+    stylelint: {},
     'postcss-easy-import': {},
     'postcss-custom-media': {
       importFrom: 'source/styles/modules/mq.css'

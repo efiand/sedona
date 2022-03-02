@@ -4,29 +4,31 @@ const params = {
 
 export default {
   plugins: [
-    {
-      name: 'removeViewBox',
-      active: false
-    },
-    {
-      name: 'removeTitle',
-      active: true
-    },
-    {
-      name: 'cleanupNumericValues',
+    ...[
+      'removeDoctype',
+      'removeXMLProcInst',
+      'removeEditorsNSData',
+      'removeMetadata',
+      'removeComments',
+      'removeViewBox',
+      'removeDesc',
+      'removeTitle',
+      'removeUselessDefs',
+      'removeEmptyAttrs',
+      'cleanupIDs'
+    ].map((name) => ({
+      active: true,
+      name
+    })),
+    ...[
+      'cleanupNumericValues',
+      'convertPathData',
+      'convertTransform',
+      'cleanupListOfValues'
+    ].map((name) => ({
+      active: true,
+      name,
       params
-    },
-    {
-      name: 'convertPathData',
-      params
-    },
-    {
-      name: 'convertTransform',
-      params
-    },
-    {
-      name: 'cleanupListOfValues',
-      params
-    }
+    }))
   ]
 };

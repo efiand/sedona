@@ -19,9 +19,9 @@
             name="{{ section.name }}"
             value="{{ group.value }}"
             placeholder="{{ group.placeholder }}"
+            type="{{ 'number' if section.counters else 'text' }}"
             {{ 'pattern="' + group.pattern + '"' if group.pattern }}
             {{ "aria-describedby=tooltip-" + group.id if group.tooltip }}
-            {{ "type=number" if section.counters }}
             {{ "min=" + group.min if group.min }}
             {{ "max=" + group.max if group.min }}
             {{ "required" if group.required }}
