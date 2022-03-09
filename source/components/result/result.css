@@ -59,12 +59,12 @@
 }
 
 .result-mode-choose {
-  &:focus + .result-mode-item {
-    border-color: var(--color-cold-lite);
-  }
-
   &:checked + .result-mode-item {
     border-color: currentColor;
+  }
+
+  &:focus + .result-mode-item {
+    border-color: var(--color-cold-lite);
   }
 }
 
