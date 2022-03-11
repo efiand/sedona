@@ -142,3 +142,7 @@
     box-shadow: 0 7px 15px var(--color-base-40);
   }
 }
+
+.range-slider-touch-area {
+  height: 100%;
+}
