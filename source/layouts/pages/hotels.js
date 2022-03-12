@@ -60,7 +60,7 @@
             title: 'От'
           },
           {
-            value: 11100,
+            value: 9000,
             title: 'До'
           }
         ]
