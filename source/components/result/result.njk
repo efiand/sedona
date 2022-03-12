@@ -1,12 +1,12 @@
 <div class="result">
   <h2 class="result-heading">
-    {{ title | punctify(":") }}
+    {{ title | punctify(':') }}
     <span class="result-count">{{ count }}</span>
   </h2>
 
   <label aria-label="{{ sortTitle | punctify }}">
-    {% with select | setProp("cssMix", "result-sort") | setProp("submit", true) %}
-      {% include "components/select/select.njk" %}
+    {% with select | setProp('cssMix', 'result-sort') | setProp('submit', true) %}
+      {% include 'components/select/select.njk' %}
     {% endwith %}
   </label>
 
@@ -19,7 +19,7 @@
           name="sorting-type"
           type="radio"
           value="{{ mode.value }}"
-          {{ "checked" if mode.checked }}
+          {{ 'checked' if mode.checked }}
           data-submit
         />
         <label class="result-mode-item result-mode-item-{{ mode.value }}" for="sorting-type-{{ mode.value }}">
@@ -31,27 +31,30 @@
 
   <ul class="result-list">
     {% for good in goods %}
-      {% with good | setProp("tag", "li") | setProp("cssMix", "result-item") %}
-        {% include "components/good/good.njk" %}
+      {% with good | setProp('tag', 'li') | setProp('cssMix', 'result-item') %}
+        {% include 'components/good/good.njk' %}
       {% endwith %}
     {% endfor %}
   </ul>
 
   <p class="result-more">
-    <button class="button button-big button-secondary result-more-button" name="limit" type="submit" value="{{ limits[1] }}">
-      {{ moreTitle }}
-    </button>
+    <button
+      class="button button-big button-secondary result-more-button"
+      name="limit"
+      type="submit"
+      value="{{ limits[1] }}"
+    >{{ moreTitle }}</button>
   </p>
 
-  {% with pager | setProp("cssMix", "result-pagination") %}
-    {% include "components/pagination/pagination.njk" %}
+  {% with pager | setProp('cssMix', 'result-pagination') %}
+    {% include 'components/pagination/pagination.njk' %}
   {% endwith %}
 
   <label class="result-limit">
-    {{ limitsTitle | punctify(":") }}
+    {{ limitsTitle | punctify(':') }}
 
-    {% with limitsSelect | setProp("cssMix", "result-limit-list") | setProp("submit", true) %}
-      {% include "components/select/select.njk" %}
+    {% with limitsSelect | setProp('cssMix', 'result-limit-list') | setProp('submit', true) %}
+      {% include 'components/select/select.njk' %}
     {% endwith %}
   </label>
 </div>

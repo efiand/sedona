@@ -2,10 +2,10 @@
   {% for group in groups %}
     {% with group %}
       <fieldset class="filter-section {{ 'filter-section-range' if isRange }}">
-        <legend class="filter-name">{{ title | punctify(":") }}</legend>
+        <legend class="filter-name">{{ title | punctify(':') }}</legend>
         {% if isRange %}
-          {% set cssMix = "filter-range" %}
-          {% include "components/range/range.njk" %}
+          {% set cssMix = 'filter-range' %}
+          {% include 'components/range/range.njk' %}
         {% else %}
           <ul class="filter-list">
             {% for item in list %}
@@ -16,8 +16,8 @@
                   name="{{ name }}"
                   type="{{ type }}"
                   value="{{ item.value }}"
-                  {{ "checked" if item.checked }}
-                  {{ "disabled" if item.disabled }}
+                  {{ 'checked' if item.checked }}
+                  {{ 'disabled' if item.disabled }}
                 />
                 <label class="filter-choose filter-choose-{{ type }}" for="checker-{{ item.value }}">
                   {{ item.title }}
@@ -31,7 +31,11 @@
   {% endfor %}
 
   <div class="filter-buttons">
-    <button class="button button-secondary filter-submit" name="page" value="1" type="submit">{{ submitTitle }}</button>
-    <button class="filter-reset" type="reset">{{ resetTitle }}</button>
+    <button class="button button-secondary filter-submit" name="page" value="1" type="submit">
+      {{ submitTitle }}
+    </button>
+    <button class="filter-reset" type="reset">
+      {{ resetTitle }}
+    </button>
   </div>
 </div>

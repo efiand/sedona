@@ -10,7 +10,9 @@
         min="{{ min }}"
         step="{{ step }}"
       />
-      <span class="range-label range-label-{{ getContext('lang', true) }}">{{ item.title }}</span>
+      <span class="range-label range-label-{{ getContext('lang', true) }}">
+        {{ item.title }}
+      </span>
     </label>
   {% endfor %}
 

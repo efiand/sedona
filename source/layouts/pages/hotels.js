@@ -1,7 +1,7 @@
 () => ({
   heading: 'Гостиницы Седоны',
   title: 'Гостиницы',
-  filter: {
+  filters: {
     groups: [
       {
         title: 'Инфраструктура',

@@ -1,4 +1,4 @@
-{% set tag = "ol" if ordered else "ul" %}
+{% set tag = 'ol' if ordered else 'ul' %}
 
 <{{ tag }} class="cards {{ cssMix }}">
   {% for item in list %}
@@ -14,9 +14,13 @@
     {% if item.image %}
       <li class="cards-group">
         <div class="cards-item cards-item-accent">{{ itemBody(item) }}</div>
-        {% with item.image | setProp("class", "cards-image") %}{% include "components/picture/picture.njk" %}{% endwith %}
+        {% with item.image | setProp('class', 'cards-image') %}
+          {% include 'components/picture/picture.njk' %}
+        {% endwith %}
         {% if item.cards %}
-          {% with item.cards %}{% include "components/cards/cards.njk" %}{% endwith %}
+          {% with item.cards %}
+            {% include 'components/cards/cards.njk' %}
+          {% endwith %}
         {% endif %}
       </li>
     {% else %}

@@ -1,11 +1,15 @@
 <section class="catalog">
   <form action="https://echo.htmlacademy.ru">
     <div class="catalog-header">
-      {% include "components/main-header/main-header.njk" %}
+      {% include 'components/main-header/main-header.njk' %}
 
-      {% with filter %}{% include "components/filter/filter.njk" %}{% endwith %}
+      {% with filters %}
+        {% include 'components/filter/filter.njk' %}
+      {% endwith %}
     </div>
 
-    {% with result %}{% include "components/result/result.njk" %}{% endwith %}
+    {% with result %}
+      {% include 'components/result/result.njk' %}
+    {% endwith %}
   </form>
 </section>

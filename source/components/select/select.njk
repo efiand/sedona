@@ -2,7 +2,7 @@
   <select
     class="select-control"
     name="{{ name }}"
-    {{ "data-submit" if submit }}
+    {{ 'data-submit' if submit }}
   >
     {% for option in options %}
       <option value="{{ option.value }}">

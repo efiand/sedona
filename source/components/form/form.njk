@@ -5,7 +5,7 @@
       {% for group in section.groups %}
         <p class="form-group {{ 'form-group-short' if section.counters }}">
           <label class="form-label" for="{{ group.id }}">
-            {{ group.title | punctify(":") }}
+            {{ group.title | punctify(':') }}
           </label>
 
           {% if section.counters %}
@@ -21,10 +21,10 @@
             placeholder="{{ group.placeholder }}"
             type="{{ 'number' if section.counters else 'text' }}"
             {{ 'pattern="' + group.pattern + '"' if group.pattern }}
-            {{ "aria-describedby=tooltip-" + group.id if group.tooltip }}
-            {{ "min=" + group.min if group.min }}
-            {{ "max=" + group.max if group.min }}
-            {{ "required" if group.required }}
+            {{ 'aria-describedby=tooltip-' + group.id if group.tooltip }}
+            {{ 'min=' + group.min if group.min }}
+            {{ 'max=' + group.max if group.min }}
+            {{ 'required' if group.required }}
           />
           {% if group.tooltip %}
             <span class="form-tooltip" aria-hidden="true">

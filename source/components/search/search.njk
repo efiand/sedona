@@ -11,7 +11,9 @@
       <button class="modal-closer no-js-hidden" type="button" data-modal-close="search">
         <span class="visually-hidden">Закрыть окно.</span>
       </button>
-      {% with form | setProp("cssMix", "modal-body") %}{% include "components/form/form.njk" %}{% endwith %}
+      {% with form | setProp('cssMix', 'modal-body') %}
+        {% include 'components/form/form.njk' %}
+      {% endwith %}
     </div>
   </div>
 </section>

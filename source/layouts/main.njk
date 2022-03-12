@@ -22,17 +22,23 @@
     <meta name="theme-color" content="#ffffff">
   </head>
   <body class="page centerer">
-    {% with nav %}{% include "components/nav/nav.njk" %}{% endwith %}
+    {% with nav %}
+      {% include 'components/nav/nav.njk' %}
+    {% endwith %}
 
     <main>
       {% block main %}
-        {% include "components/main-header/main-header.njk" %}
+        {% include 'components/main-header/main-header.njk' %}
       {% endblock %}
-      {% with subscribe %}{% include "components/subscribe/subscribe.njk" %}{% endwith %}
+      {% with subscribe %}
+        {% include 'components/subscribe/subscribe.njk' %}
+      {% endwith %}
     </main>
 
     <footer class="page-footer">
-      {% with contacts %}{% include "components/contacts/contacts.njk" %}{% endwith %}
+      {% with contacts %}
+        {% include 'components/contacts/contacts.njk' %}
+      {% endwith %}
     </footer>
 
     {% if isDev %}

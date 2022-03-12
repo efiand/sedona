@@ -6,7 +6,14 @@
 >
   <label class="form-mini-group">
     <span class="visually-hidden">{{ placeholder | punctify(':') }}</span>
-    <input class="form-mini-field" type="{{ fieldType or 'text' }}" placeholder="{{ placeholder }}" required>
+    <input
+      class="form-mini-field"
+      type="{{ fieldType or 'text' }}"
+      placeholder="{{ placeholder }}"
+      required
+    />
   </label>
-  <button class="form-mini-submit button button-big button-secondary" type="submit">{{ buttonTitle }}</button>
+  <button class="form-mini-submit button button-big button-secondary" type="submit">
+    {{ buttonTitle }}
+  </button>
 </form>

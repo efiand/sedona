@@ -2,8 +2,8 @@
   <a class="good-mainlink" href="{{ links[0].url }}">
     <h3 class="good-title">{{ title }}</h3>
 
-    {% with image | setProp("class", "good-image") %}
-      {% include "components/picture/picture.njk" %}
+    {% with image | setProp('class', 'good-image') %}
+      {% include 'components/picture/picture.njk' %}
     {% endwith %}
   </a>
 
@@ -21,8 +21,8 @@
 
   <p class="good-star-rating good-star-rating-{{ starRating }}">
     <span class="visually-hidden">
-      {{ starRatingTitle | punctify(":") }} {{ starRating }}
+      {{ starRatingTitle | punctify(':') }} {{ starRating }}
     </span>
   </p>
-  <p class="good-rating">{{ ratingTitle | punctify(":") }} {{ rating }}</p>
+  <p class="good-rating">{{ ratingTitle | punctify(':') }} {{ rating }}</p>
 </{{ tag }}>

@@ -1,8 +1,12 @@
-{% extends "layouts/main.njk" %}
+{% extends 'layouts/main.njk' %}
 
 {% block main %}
   <h1 class="visually-hidden">{{ heading }}</h1>
-  {% with advantages %}{% include "components/welcome/welcome.njk" %}{% endwith %}
+  {% with advantages %}
+    {% include 'components/welcome/welcome.njk' %}
+  {% endwith %}
 
-  {% with search %}{% include "components/search/search.njk" %}{% endwith %}
+  {% with search %}
+    {% include 'components/search/search.njk' %}
+  {% endwith %}
 {% endblock %}

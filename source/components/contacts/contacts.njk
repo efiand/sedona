@@ -1,7 +1,9 @@
 <section class="contacts">
   <h2 class="visually-hidden">{{ title | punctify }}</h2>
 
-  {% with social %}{% include "components/social/social.njk" %}{% endwith %}
+  {% with social %}
+    {% include 'components/social/social.njk' %}
+  {% endwith %}
 
   <a class="contacts-link" href="tel:{{ tel | numberize }}">{{ tel }}</a>
 
