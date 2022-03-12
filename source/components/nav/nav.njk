@@ -6,7 +6,11 @@
     <ul class="nav-pages">
       {% for item in pages %}
         <li>
-          <a class="nav-link {{ 'nav-link-current' if item.isCurrent }}" href="{{ item.url }}">
+          <a
+            class="nav-link {{ 'nav-link-current' if item.isCurrent }}"
+            href="{{ item.url }}"
+            {{ 'aria-current="page"' if item.isCurrent }}
+          >
             {{ item.title }}
           </a>
         </li>
