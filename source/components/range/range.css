@@ -72,7 +72,7 @@
   }
 }
 
-.range-slider-target {
+.range-target {
   width: 100%;
   margin-top: 20px;
   padding-right: 20px;
@@ -80,7 +80,7 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-.range-slider-base {
+.range-base {
   position: relative;
   height: 20px;
 
@@ -96,8 +96,8 @@
   }
 }
 
-.range-slider-connect,
-.range-slider-origin {
+.range-connect,
+.range-origin {
   position: absolute;
   width: 100%;
   transform-origin: 0 0;
@@ -106,19 +106,19 @@
   will-change: transform;
 }
 
-.range-slider-connect {
+.range-connect {
   top: 8px;
   right: 0;
   height: 4px;
   background-color: currentColor;
 }
 
-.range-slider-origin {
+.range-origin {
   top: 0;
   left: 100%;
 }
 
-.range-slider-handle {
+.range-handle {
   position: absolute;
   top: 0;
   left: 0;
@@ -143,6 +143,6 @@
   }
 }
 
-.range-slider-touch-area {
+.range-touch-area {
   height: 100%;
 }

@@ -5,7 +5,7 @@ const messages = window.Data.messages.Range;
 export default class Range {
   constructor(el) {
     this._el = el;
-    this._slider = this._el.querySelector('.range-slider-target');
+    this._slider = this._el.querySelector('.range-target');
     this._fromField = this._el.querySelector('.range-group:first-of-type input');
     this._toField = this._el.querySelector('.range-group:last-of-type input');
 
@@ -40,7 +40,7 @@ export default class Range {
         max
       },
       step,
-      cssPrefix: 'range-slider-',
+      cssPrefix: 'range-',
       handleAttributes: [
         {
           'aria-label': messages.DOWN
