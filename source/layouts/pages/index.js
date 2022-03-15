@@ -64,62 +64,6 @@
           }
         ]
       }
-    },
-    search: {
-      title: 'Поиск гостиницы в Седоне',
-      lead: 'Заинтересовались?',
-      text: 'Укажите предполагаемые даты поездки,<br>и мы покажем вам лучшие предложения гостиниц в Седоне &nbsp;',
-      form: {
-        sections: [
-          {
-            title: 'Даты заезда и выезда',
-            name: 'dates[]',
-            groups: [
-              {
-                title: 'Дата заезда',
-                id: 'date-from'
-              },
-              {
-                title: 'Дата выезда',
-                id: 'date-to'
-              }
-            ].map((group) => ({
-              ...group,
-              required: true,
-              placeholder: 'Укажите дату',
-              pattern: `^\\d{1,2} (${data.js.monthsInGenitive.map((m) => `(${m})`).join('|')}) \\d{4}$`,
-              datepickerTitle: 'Выбрать дату'
-            }))
-          },
-          {
-            title: 'Количество человек',
-            counters: true,
-            name: 'count[]',
-            groups: [
-              {
-                title: 'Взрослые',
-                id: 'count-adults',
-                value: '2',
-                min: '1',
-                max: '99',
-                required: true
-              },
-              {
-                title: 'Дети',
-                id: 'count-children',
-                value: '1',
-                min: '0',
-                max: '99',
-                tooltip: 'Укажите количество детей, которые будут с вами, возраст которых от 6 до 18 лет. Дети до 6 лет размещаются бесплатно.',
-                required: true
-              }
-            ]
-          }
-        ],
-        stepDownTitle: 'Меньше',
-        stepUpTitle: 'Больше',
-        submitTitle: 'Найти'
-      }
     }
   };
 };

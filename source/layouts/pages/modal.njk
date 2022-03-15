@@ -1,0 +1,11 @@
+{% extends 'layouts/main.njk' %}
+
+{% block main %}
+  {% with search %}
+    {% include 'components/search/search.njk' %}
+  {% endwith %}
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => document.querySelector('.search-link').click());
+  </script>
+{% endblock %}
