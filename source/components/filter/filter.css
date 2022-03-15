@@ -66,8 +66,10 @@
     mask-image: url("../images/sprite.min.svg#checkbox");
     opacity: 0;
   }
+}
 
-  &-radio {
+.filter-checker {
+  &[type="radio"] + .filter-choose {
     &::before {
       border-radius: 50%;
     }
@@ -76,19 +78,17 @@
       mask-image: url("../images/sprite.min.svg#radio");
     }
   }
-}
 
-.filter-checker {
-  &:disabled ~ .filter-choose::before {
+  &:disabled + .filter-choose::before {
     opacity: 0.3;
   }
 
-  &:focus-visible ~ .filter-choose::before {
+  &:focus-visible + .filter-choose::before {
     outline: var(--focus-outline);
     opacity: 0.6;
   }
 
-  &:checked ~ .filter-choose::after {
+  &:checked + .filter-choose::after {
     opacity: 1;
   }
 }
