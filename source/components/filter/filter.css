@@ -31,66 +31,15 @@
 }
 
 .filter-item {
+  display: flex;
+
   & + & {
     margin-top: 13px;
   }
 }
 
-.filter-choose {
-  position: relative;
-  padding-left: 40px;
-
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    top: 1px;
-    left: 0;
-    display: block;
-    width: 20px;
-    height: 20px;
-    transition: opacity 0.2s ease-in-out;
-  }
-
-  &::before {
-    background-color: currentColor;
-    border-radius: 4px;
-  }
-
-  &:hover::before {
-    opacity: 0.6;
-  }
-
-  &::after {
-    background-color: var(--color-cold-havy);
-    mask-image: url("../images/sprite.min.svg#checkbox");
-    opacity: 0;
-  }
-}
-
 .filter-checker {
-  &[type="radio"] + .filter-choose {
-    &::before {
-      border-radius: 50%;
-    }
-
-    &::after {
-      mask-image: url("../images/sprite.min.svg#radio");
-    }
-  }
-
-  &:disabled + .filter-choose::before {
-    opacity: 0.3;
-  }
-
-  &:focus-visible + .filter-choose::before {
-    outline: var(--focus-outline);
-    opacity: 0.6;
-  }
-
-  &:checked + .filter-choose::after {
-    opacity: 1;
-  }
+  margin: 1px 20px 0 0;
 }
 
 .filter-range {

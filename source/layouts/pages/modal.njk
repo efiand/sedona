@@ -1,6 +1,7 @@
 {% extends 'layouts/main.njk' %}
 
 {% block main %}
+  <h1 class="visually-hidden">{{ search.title }}</h1>
   {% with search %}
     {% include 'components/search/search.njk' %}
   {% endwith %}

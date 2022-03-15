@@ -11,7 +11,7 @@
             {% for item in list %}
               <li class="filter-item">
                 <input
-                  class="filter-checker visually-hidden"
+                  class="checker filter-checker"
                   id="checker-{{ item.value }}"
                   name="{{ name }}"
                   type="{{ type }}"
@@ -19,7 +19,7 @@
                   {{ 'checked' if item.checked }}
                   {{ 'disabled' if item.disabled }}
                 />
-                <label class="filter-choose" for="checker-{{ item.value }}">
+                <label for="checker-{{ item.value }}">
                   {{ item.title }}
                 </label>
               </li>
