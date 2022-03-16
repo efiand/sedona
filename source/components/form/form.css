@@ -35,7 +35,7 @@
 
 .form-field {
   flex-grow: 1;
-  padding: 2px 20px 4px;
+  padding: 2px 48px 4px 20px;
   font-weight: 700;
   background-color: var(--color-lite);
   border: 2px solid transparent;
@@ -43,6 +43,7 @@
 
   &-counter {
     max-width: 132px;
+    padding-left: 48px;
     text-align: center;
   }
 

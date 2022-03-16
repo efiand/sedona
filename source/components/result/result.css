@@ -5,8 +5,10 @@
 }
 
 .result-heading {
+  box-sizing: border-box;
   width: 50%;
   margin: 4px 0 0;
+  padding-right: 40px;
   font-weight: 700;
   font-size: 30px;
   line-height: 1.294;
@@ -55,6 +57,10 @@
 
   &:hover {
     border-color: var(--color-cold-lite);
+  }
+
+  &:active {
+    border-color: currentColor;
   }
 }
 

@@ -1,11 +1,11 @@
 .subscribe {
-  padding: 28px 72px 140px;
+  padding: 28px 72px 142px;
 
   &-accent {
     padding-top: 92px;
     padding-bottom: 94px;
     color: #ffffff;
-    background-color: var(--color-cold-lite);
+    background-color: var(--color-warm-lite);
     background-image: url("../images/bg-subscribe.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -23,5 +23,5 @@
 
 .subscribe-form {
   max-width: 800px;
-  margin: 46px auto 0;
+  margin: 44px auto 0;
 }

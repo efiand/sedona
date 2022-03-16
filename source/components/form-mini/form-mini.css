@@ -3,7 +3,7 @@
 
   &-validable .form-mini-field:invalid {
     background-color: var(--color-contrast);
-    border-color: var(--color-error-dark);
+    border-color: var(--color-error);
   }
 }
 

@@ -1,6 +1,7 @@
 .welcome-header {
   min-height: 485px;
   margin: 0 0 60px;
+  background-color: var(--color-cold-lite);
   background-image: url("../images/bg-welcome.jpg");
   background-size: cover;
 }

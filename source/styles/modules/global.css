@@ -8,9 +8,10 @@ html {
   --color-base-25: rgba(0, 0, 0, 0.25);
   --color-base-20: rgba(0, 0, 0, 0.2);
   --color-base-15: rgba(0, 0, 0, 0.15);
+  --color-base-10: rgba(0, 0, 0, 0.1);
   --color-dark: #333333;
   --color-dark-30: rgba(51, 51, 51, 0.3);
-  --color-gray: #e5e5e5;
+  --color-gray: #e6e6e6;
   --color-lite: #f2f2f2;
   --color-lite-80: rgba(242, 242, 242, 0.8);
   --color-warm-dark: #615048;
@@ -39,7 +40,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
-  background-color: var(--color-gray);
+  background-color: var(--color-lite);
 }
 
 body {
@@ -111,6 +112,7 @@ img {
 
 :focus {
   outline: var(--focus-outline);
+  outline-offset: 0;
 
   @supports selector(:focus-visible) {
     outline: none;
@@ -119,4 +121,5 @@ img {
 
 :focus-visible {
   outline: var(--focus-outline);
+  outline-offset: 0;
 }

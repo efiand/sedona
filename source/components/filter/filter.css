@@ -39,6 +39,7 @@
 }
 
 .filter-checker {
+  flex-shrink: 0;
   margin: 1px 20px 0 0;
 }
 
