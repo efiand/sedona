@@ -1,4 +1,6 @@
 .picture {
+  background-color: var(--color-gray);
+
   img {
     display: block;
   }

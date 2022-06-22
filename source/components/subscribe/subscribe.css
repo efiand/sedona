@@ -1,5 +1,5 @@
 .subscribe {
-  padding: 28px 72px 142px;
+  padding: 63px 72px 94px;
 
   &-accent {
     padding-top: 92px;
@@ -11,14 +11,9 @@
     background-size: cover;
 
     & .subscribe-description {
-      margin-top: 0;
       color: inherit;
     }
   }
-}
-
-.subscribe-description {
-  margin-top: 46px;
 }
 
 .subscribe-form {

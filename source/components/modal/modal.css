@@ -27,17 +27,17 @@
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  max-width: 32rem;
+  max-width: 575px;
   margin: auto;
-  padding: 3rem 4rem 0;
+  padding: 3rem 70px 0;
 }
 
 .modal-heading {
   max-width: 490px;
-  margin: 5px 0 62px;
+  margin: 7px 0 64px;
   padding-right: 32px;
   font-size: 30px;
-  line-height: 40px;
+  line-height: 36px;
   text-transform: uppercase;
 }
 

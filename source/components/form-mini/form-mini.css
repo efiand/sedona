@@ -13,8 +13,8 @@
 
 .form-mini-field {
   width: 100%;
-  padding: 16px 22px 14px;
-  line-height: 26px;
+  padding: 17px 20px 16px;
+  line-height: 21px;
   background-color: var(--color-lite);
   border: 2px solid transparent;
   border-radius: 10px 0 0 10px;
@@ -27,12 +27,15 @@
     background-color: var(--color-gray);
     outline: var(--focus-outline);
   }
+
+  &::placeholder {
+    opacity: 0.6;
+  }
 }
 
 .form-mini-submit {
   min-width: 200px;
   padding-right: 30px;
   padding-left: 30px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  border-radius: 0 10px 10px 0;
 }

@@ -9,11 +9,11 @@
 }
 
 .pagination-link {
-  min-width: 55px;
-  padding: 14px 16px 15px;
+  min-width: 60px;
+  padding: 11px 16px 13px;
   font-weight: 700;
   font-size: 20px;
-  line-height: 26px;
+  line-height: 36px;
   border-radius: 4px;
 
   &-current {

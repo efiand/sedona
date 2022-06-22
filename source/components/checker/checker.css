@@ -23,7 +23,7 @@
   }
 
   &::after {
-    background-color: var(--color-cold-havy);
+    background-color: var(--color-cold-heavy);
     mask-image: url("../images/sprite.min.svg#checkbox");
     opacity: 0;
   }

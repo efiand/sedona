@@ -82,11 +82,11 @@
             name: 'dates[]',
             groups: [
               {
-                title: 'Дата заезда',
+                title: 'Дата Заезда',
                 id: 'date-from'
               },
               {
-                title: 'Дата выезда',
+                title: 'Дата Выезда',
                 id: 'date-to'
               }
             ].map((group) => ({
@@ -138,18 +138,18 @@
       social: {
         list: [
           {
-            name: 'twitter',
-            url: 'https://twitter.com/htmlacademy_ru',
-            title: 'Twitter'
+            name: 'vk',
+            url: 'https://vk.com/htmlacademy',
+            title: 'Vkontakte'
           },
           {
-            name: 'facebook',
-            url: 'https://www.facebook.com/htmlacademy',
-            title: 'Facebook'
+            name: 'telegram',
+            url: 'https://t.me/htmlacademy',
+            title: 'Telegram'
           },
           {
             name: 'youtube',
-            url: 'https://www.youtube.com/c/htmlacademyrus',
+            url: 'https://www.youtube.com/user/htmlacademyru',
             title: 'Youtube'
           }
         ]

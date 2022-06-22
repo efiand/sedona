@@ -1,13 +1,11 @@
-<span class="select {{ cssMix }}">
-  <select
-    class="select-control"
-    name="{{ name }}"
-    {{ 'data-submit' if submit }}
-  >
-    {% for option in options %}
-      <option value="{{ option.value }}">
-        {{ option.title or option.value }}
-      </option>
-    {% endfor %}
-  </select>
-</span>
+<select
+  class="select {{ cssMix }}"
+  name="{{ name }}"
+  {{ 'data-submit' if submit }}
+>
+  {% for option in options %}
+    <option value="{{ option.value }}">
+      {{ option.title or option.value }}
+    </option>
+  {% endfor %}
+</select>

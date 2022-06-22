@@ -13,7 +13,6 @@
   align-items: flex-start;
   width: 100%;
   margin: 0 0 14px;
-  line-height: 40px;
 
   &-short {
     width: 50%;
@@ -29,14 +28,16 @@
 .form-label {
   order: -2;
   width: 145px;
-  padding: 5px 10px 0 0;
+  padding: 12px 10px 0 0;
   font-weight: 700;
+  font-size: 20px;
+  line-height: 26px;
 }
 
 .form-field {
   flex-grow: 1;
-  padding: 2px 48px 4px 20px;
-  font-weight: 700;
+  padding: 12px 48px 11px 20px;
+  line-height: 21px;
   background-color: var(--color-lite);
   border: 2px solid transparent;
   border-radius: 4px;
@@ -61,9 +62,9 @@
 
 .form-status {
   width: calc(100% - 155px);
-  margin-left: 155px;
+  margin: 5px 0 0 155px;
   font-size: 16px;
-  line-height: 26px;
+  line-height: 21px;
   color: var(--color-dark);
 
   &-error {
@@ -75,28 +76,30 @@
   position: absolute;
   top: 15px;
   right: 16px;
+  display: flex;
   width: 20px;
   height: 20px;
+  padding: 0;
   background-color: transparent;
   border-radius: 4px;
   opacity: 0.3;
 
   &::before {
     content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    margin: auto;
     background-color: currentColor;
     transition: inherit;
   }
 
   &-datepicker::before {
+    width: 20px;
+    height: 20px;
     mask-image: url("../images/sprite.min.svg#date");
   }
 
   &-step-up::before {
+    width: 13px;
+    height: 13px;
     mask-image: url("../images/sprite.min.svg#plus");
   }
 
@@ -104,6 +107,8 @@
     right: 98px;
 
     &::before {
+      width: 13px;
+      height: 13px;
       mask-image: url("../images/sprite.min.svg#minus");
     }
   }
@@ -164,7 +169,7 @@
   margin-top: 15px;
   padding: 20px 20px 22px;
   font-size: 16px;
-  line-height: 20px;
+  line-height: 21px;
   background-color: var(--color-dark);
   border-radius: 10px;
   box-shadow: 0 15px 30px var(--color-base-30);
@@ -195,5 +200,6 @@
 
 .form-submit {
   width: 100%;
-  margin-top: 1.5rem;
+  margin-top: 26px;
+  border-radius: 10px;
 }

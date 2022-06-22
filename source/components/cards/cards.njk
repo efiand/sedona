@@ -24,7 +24,7 @@
         {% endif %}
       </li>
     {% else %}
-      <li class="cards-item">{{ itemBody(item) }}</li>
+      <li class="cards-item {{ 'cards-item-icon' if item.icon }}">{{ itemBody(item) }}</li>
     {% endif %}
   {% endfor %}
 </{{ tag }}>

@@ -1,8 +1,8 @@
 .good {
   display: grid;
   align-content: start;
-  grid-template-columns: 133px 1fr;
-  gap: 16px 25px;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 20px;
   box-sizing: border-box;
   padding: 20px;
 }
@@ -32,17 +32,17 @@
 .good-title {
   margin: 0;
   font-size: 24px;
-  line-height: 1.294;
+  line-height: 28px;
 }
 
 .good-image {
-  margin: 0 0 16px;
+  margin: 0 0 17px;
   transition: inherit;
 }
 
 .good-text {
   margin: 0;
-  line-height: 23px;
+  line-height: 21px;
   color: var(--color-dark);
 }
 
@@ -62,7 +62,7 @@
   background-color: var(--color-cold-lite);
   mask-image: url("../images/sprite.min.svg#star");
   mask-size: 24px 20px;
-  mask-position: -2px 0;
+  mask-position: -2px 1px;
 
   &-2 {
     width: 46px;
@@ -82,7 +82,7 @@
 }
 
 .good-rating {
-  margin: 0 0 0 -1rem; /* Странное вылезание на макете из сетки */
+  margin: 0;
   padding: 9px 12px 7px;
   font-size: 16px;
   line-height: 1.294;

@@ -6,8 +6,4 @@
   line-height: 2rem;
   text-align: center;
   text-transform: uppercase;
-
-  &-lead {
-    margin-bottom: 38px;
-  }
 }

@@ -16,7 +16,7 @@
 }
 
 .cards-item {
-  padding: 98px 4rem 6rem;
+  padding: 102px 4rem;
   text-align: center;
   background-color: var(--color-cold-lite-12);
 
@@ -25,18 +25,18 @@
   }
 
   &-accent {
-    padding-top: 96px;
+    padding-top: 92px;
     padding-bottom: 88px;
     color: var(--color-contrast);
     background-color: var(--color-cold-lite);
 
-    & .cards-title {
-      margin-bottom: 30px;
-    }
-
     & .cards-text {
       color: inherit;
     }
+  }
+
+  &-icon {
+    padding-top: 72px;
   }
 }
 
@@ -51,7 +51,7 @@
 
 .cards-group {
   & .cards-item:not(.cards-item-accent) {
-    padding-bottom: 5rem;
+    padding-bottom: 80px;
   }
 
   & .cards-item:nth-of-type(2n) {
@@ -64,20 +64,20 @@
 }
 
 .cards-title {
-  margin: 0 0 28px;
+  margin: 0 0 30px;
   font-size: 24px;
   line-height: 28px;
   text-transform: uppercase;
 
   &-icon {
-    margin-bottom: 1rem;
+    margin-bottom: 30px;
 
     &::before {
       content: "";
       display: block;
       width: 84px;
       height: 84px;
-      margin: -1rem auto 20px;
+      margin: 0 auto 27px;
       background-color: var(--color-cold-lite);
     }
 

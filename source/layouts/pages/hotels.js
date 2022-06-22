@@ -26,7 +26,7 @@
         ]
       },
       {
-        title: 'Тип жилья',
+        title: 'Тип Жилья',
         type: 'radio',
         name: 'type',
         list: [
@@ -111,24 +111,24 @@
         rating: '8,5'
       },
       {
-        title: 'Desert Quail Inn',
-        src: 'images/hotel-2.jpg',
-        price: 'От 3000 ₽',
-        starRating: 3,
-        rating: '8,9'
-      },
-      {
         title: 'Villas at Poco Diablo',
         src: 'images/hotel-3.jpg',
-        price: 'От 2000 ₽',
-        starRating: 2,
+        price: 'От 5000 ₽',
+        starRating: 4,
         rating: '9,2',
         favorited: true
       },
       {
+        title: 'Desert Quail Inn',
+        src: 'images/hotel-2.jpg',
+        price: 'От 2500 ₽',
+        starRating: 3,
+        rating: '8,9'
+      },
+      {
         title: 'GreenTree Inn',
         src: 'images/hotel-4.jpg',
-        price: 'От 3000 ₽',
+        price: 'От 1500 ₽',
         starRating: 2,
         rating: '9,2'
       }
@@ -140,7 +140,7 @@
           src,
           alt: item.title,
           width: 300,
-          height: 206
+          height: 211
         },
         type: 'Гостиница',
         links: [
@@ -158,7 +158,6 @@
         ratingTitle: 'Рейтинг'
       };
     }),
-    moreTitle: 'Загрузить ещё',
     pager: {
       list: [1, 2, 3, 4, 5, 10].map((item, i, arr) => ({
         value: item,
