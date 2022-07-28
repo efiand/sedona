@@ -1,6 +1,8 @@
-# sedona-modern
+# sedona
 
-[Опубликованная версия](https://efiand.github.io/sedona-modern)
+Эталонная вёрстка для обучения студентов HTML Academy.
+
+[Опубликованная версия](https://efiand.github.io/sedona)
 
 
 ## Используемые инструменты
