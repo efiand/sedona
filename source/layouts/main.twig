@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{ projectName ~ ': ' ~ pageTitle}}</title>
+		<meta name="description" content="{{ description }}">
+		<link rel="stylesheet" href="{{ rootPath }}styles/main.css{{ version }}">
+		<link rel="icon" href="{{ rootPath }}/favicon-32x32.png" type="image/png" sizes="32x32">
+
+		{% for weight in [400, 700] %}
+			<link rel="preload" href="fonts/ptsans-{{ weight }}.woff2" as="font" crossorigin="anonymous">
+		{% endfor %}
+	</head>
+	<body>
+		{{ app.page }}
+
+		<script>
+			window.appData = {{ appData|json_encode() }}
+		</script>
+		<script src="{{ rootPath }}scripts/main.js{{ version }}"></script>
+
+		{% if isDev %}
+			<script>
+				window.pixelperfect = {{ pixelperfect }};
+			</script>
+			<script src="https://efiand.github.io/pixelperfect-tool/pixelperfect.min.js"></script>
+		{% endif %}
+	</body>
+</html>

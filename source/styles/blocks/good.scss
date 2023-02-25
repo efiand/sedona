@@ -1,0 +1,56 @@
+.good {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 16px 20px;
+	padding: 20px 19px;
+	border: 1px solid #e6e6e6;
+	border-radius: 4px;
+}
+
+.good__picture {
+	grid-column: 1 / -1;
+}
+
+.good__title {
+	grid-column: 1 / -1;
+	margin: 0;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 28px;
+}
+
+.good__text {
+	margin: 0;
+	color: #333333;
+
+	&:nth-of-type(2n) {
+		justify-self: end;
+	}
+}
+
+.good__star-rating {
+	height: 37px;
+	margin: 0;
+	background-image: url("../images/sprite.svg#star");
+	background-repeat: repeat-x;
+	background-position: 0 50%;
+	background-size: 24px;
+
+	@for $i from 1 through 5 {
+		&--#{$i} {
+			width: calc(24px * $i - 6px);
+		}
+	}
+}
+
+.good__rating {
+	margin: 0;
+	padding: 9px 16px 8px;
+	font-size: 16px;
+	line-height: 20px;
+	text-transform: uppercase;
+	text-align: center;
+	color: #333333;
+	background-color: #f2f2f2;
+	border-radius: 4px;
+}

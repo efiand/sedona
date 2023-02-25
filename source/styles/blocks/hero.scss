@@ -1,0 +1,25 @@
+.hero {
+	position: relative;
+	padding: 51px 70px 82px;
+	color: #ffffff;
+	background-color: #333333;
+	background-size: cover;
+
+	@include graphic-retina("hero-background");
+
+	&::after {
+		content: "";
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		height: 57px;
+		background-size: 100%;
+
+		@include graphic-icon("decor", false);
+	}
+}
+
+.hero__image {
+	margin: 0 auto;
+}

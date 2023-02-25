@@ -1,0 +1,22 @@
+.main-header {
+	padding: 35px 70px 70px;
+
+	&--accent {
+		color: #ffffff;
+		background-color: #333333;
+		background-size: cover;
+
+		@include graphic-retina("main-header-background");
+	}
+}
+
+.main-header__title {
+	margin: 0 0 7px;
+	font-weight: 700;
+	font-size: 60px;
+	line-height: 78px;
+}
+
+.main-header__breadcrumbs {
+	margin: 0 0 41px;
+}

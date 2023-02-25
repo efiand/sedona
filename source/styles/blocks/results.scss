@@ -1,0 +1,107 @@
+.results {
+	display: grid;
+	grid-template-columns: 1fr 292px 216px;
+	gap: 39px 14px;
+	padding: 50px 70px 60px;
+}
+
+.results__count {
+	margin: 5px 0;
+	font-weight: 700;
+	font-size: 30px;
+	line-height: 36px;
+	text-transform: uppercase;
+}
+
+.results__select,
+.results__view {
+	margin: 0;
+	background-color: transparent;
+	border: 2px solid #e5e5e5;
+	border-radius: 4px;
+	outline: none;
+	transition: border-color $transition-default, opacity $transition-default;
+	cursor: pointer;
+}
+
+.results__select {
+	justify-self: end;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 12px 48px 12px 18px;
+	font: inherit;
+	color: #333333;
+	background-image: url("../images/sprite.svg#arrow-down");
+	background-repeat: no-repeat;
+	background-position: right 13px center;
+	background-size: 20px;
+	appearance: none;
+
+	&:hover {
+		border-color: #68a2ca;
+	}
+
+	&:focus {
+		border-color: #3f5e72;
+	}
+
+	&:disabled {
+		border-color: currentColor;
+		opacity: 0.3;
+	}
+}
+
+.results__views {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 48px);
+	gap: 8px;
+	justify-content: end;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.results__view {
+	display: flex;
+	width: 48px;
+	height: 48px;
+
+	&::before {
+		content: "";
+		width: 16px;
+		height: 14px;
+		margin: auto;
+		background-color: currentColor;
+	}
+
+	@each $alias in ("tiles", "slideshow", "list") {
+		&--#{$alias}::before {
+			@include graphic-icon("view-#{$alias}");
+		}
+	}
+
+	&:hover,
+	&:active,
+	&--current {
+		border-color: currentColor;
+	}
+
+	@include interactive-focus {
+		border-color: #68a2ca;
+	}
+}
+
+.results__list {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 18px 20px;
+	grid-column: 1 / -1;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.results__pagination {
+	grid-column: 1 / -1;
+	margin: 0;
+}

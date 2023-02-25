@@ -1,0 +1,47 @@
+.section {
+	padding: var(--top-space, 95px) 0 var(--bottom-space, 96px);
+
+	&--accent {
+		color: #ffffff;
+		background-color: #333333;
+		background-size: cover;
+
+		@include graphic-retina("accent-background");
+	}
+}
+
+.section__title {
+	margin: 0 70px var(--title-space, 21px);
+	font-weight: 700;
+	font-size: 30px;
+	line-height: 36px;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.section__description {
+	margin: 0 70px var(--content-space, 54px);
+	font-size: 22px;
+	line-height: 26px;
+	text-align: center;
+	color: #333333;
+}
+
+.section--accent .section__description {
+	color: inherit;
+}
+
+.section__body {
+	margin: 0;
+}
+
+.section__button {
+	display: table;
+	margin: 0 auto;
+}
+
+.section__form {
+	max-width: 684px;
+	margin: 0 auto;
+	padding: 0 70px;
+}

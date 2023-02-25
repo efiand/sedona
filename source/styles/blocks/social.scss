@@ -1,0 +1,35 @@
+.social {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 48px);
+	padding: 0;
+	list-style: none;
+}
+
+.social__link {
+	color: #83b3d3;
+
+	&:hover {
+		color: #68a2ca;
+	}
+
+	@include interactive-focus {
+		color: #68a2ca;
+	}
+
+	&:active {
+		color: rgba(#68a2ca, 0.3);
+	}
+
+	&::before {
+		content: "";
+		display: block;
+		height: 41px;
+		background-color: currentColor;
+	}
+
+	@each $alias in ("vk", "telegram", "youtube") {
+		&--#{$alias}::before {
+			@include graphic-icon("social-#{$alias}");
+		}
+	}
+}

@@ -1,0 +1,115 @@
+.cards {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	padding: 0;
+	list-style: none;
+}
+
+.cards__item {
+	box-sizing: border-box;
+	min-height: 385px;
+	padding: 112px 80px;
+	text-align: center;
+	background-color: rgba(#83b3d3, 0.2);
+
+	&:nth-child(even),
+	&--iconable {
+		background-color: rgba(#83b3d3, 0.12);
+	}
+
+	&--iconable {
+		position: relative;
+		padding: 183px 80px 80px;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 79px;
+			left: 50%;
+			width: 76px;
+			height: 76px;
+			background-color: #83b3d3;
+			transform: translateX(-50%);
+		}
+
+		&:nth-child(even) {
+			background-color: transparent;
+		}
+
+		.cards__title {
+			padding: 0;
+		}
+
+		.cards__title::before {
+			content: none;
+		}
+	}
+
+	&--housing::before {
+		@include graphic-icon("housing");
+	}
+
+	&--eat::before {
+		@include graphic-icon("eat");
+	}
+
+	&--souvenirs::before {
+		@include graphic-icon("souvenirs");
+	}
+}
+
+.cards__picture {
+	height: 100%;
+	object-fit: cover;
+}
+
+.cards__title {
+	position: relative;
+	margin: 0 0 30px;
+	padding-bottom: 32px;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 28px;
+	text-transform: uppercase;
+
+	&::before {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		width: 60px;
+		height: 2px;
+		background-color: currentColor;
+		transform: translateX(-50%);
+		opacity: 0.3;
+	}
+}
+
+.cards__description {
+	margin: 0;
+	color: #333333;
+}
+
+.cards__group {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	grid-column: 1 / -1;
+
+	.cards__item {
+		padding: 102px 80px;
+		color: #ffffff;
+		background-color: #82b3d3;
+	}
+
+	.cards__description {
+		color: inherit;
+	}
+
+	&--reversed {
+		grid-template-columns: 2fr 1fr;
+
+		.cards__picture {
+			order: -1;
+		}
+	}
+}

@@ -1,9 +1,0 @@
-.catalog-header {
-  --color-base: #ffffff;
-  --color-base-60: rgba(255, 255, 255, 0.6);
-  color: var(--color-base);
-  background-color: var(--color-warm-lite);
-  background-image: url("../images/bg-filters.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}

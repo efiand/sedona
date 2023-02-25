@@ -1,0 +1,39 @@
+.page-footer__contacts {
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr;
+	gap: 40px;
+	padding: 45px 70px 35px;
+}
+
+.page-footer__social {
+	margin: 0;
+}
+
+.page-footer__link {
+	justify-self: center;
+	margin-left: 30px; // Pixelperfect
+	font-size: 40px;
+	line-height: 1;
+	text-decoration: none;
+
+	&:last-child {
+		justify-self: end;
+	}
+
+	&:hover {
+		color: #756157;
+	}
+
+	@include interactive-focus {
+		color: #756157;
+	}
+
+	&:active {
+		color: rgba(#756157, 0.3);
+	}
+}
+
+.page-footer__logo {
+	margin-top: 3px;
+	fill: currentColor;
+}

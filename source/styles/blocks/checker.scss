@@ -1,0 +1,58 @@
+.checker {
+	position: relative;
+	display: inline-block;
+	vertical-align: baseline;
+	padding-left: 36px;
+	line-height: 23px;
+	cursor: pointer;
+
+	@include interactive-defaults(false);
+}
+
+.checker__input {
+	position: absolute;
+	top: 1px;
+	left: 0;
+	display: flex;
+	width: 20px;
+	height: 20px;
+	margin: 0;
+	background-color: #ffffff;
+	outline: none;
+	cursor: pointer;
+	appearance: none;
+
+	&::before {
+		margin: auto;
+		background-color: #3f5e72;
+	}
+
+	&--checkbox {
+		border-radius: 4px;
+
+		&::before {
+			width: 13px;
+			height: 11px;
+
+			@include graphic-icon("check");
+		}
+	}
+
+	&--radio {
+		border-radius: 50%;
+
+		&::before {
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+		}
+	}
+
+	@include interactive-focus {
+		box-shadow: 0 0 0 3px #83b3d3;
+	}
+
+	&:checked::before {
+		content: "";
+	}
+}

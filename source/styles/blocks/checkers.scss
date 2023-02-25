@@ -1,0 +1,8 @@
+.checkers {
+	padding: 0;
+	list-style: none;
+}
+
+.checkers__item:not(:last-child) {
+	margin-bottom: 16px;
+}
