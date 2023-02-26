@@ -34,7 +34,7 @@
 
 	&:active {
 		color: rgba(#ffffff, 0.3);
-		background-color: #68a2ca;
+		background-color: #82b3d3;
 	}
 
 	&--primary {
@@ -84,5 +84,9 @@
 		padding: 8px 50px;
 		font-size: 20px;
 		line-height: 36px;
+
+		&:active {
+			background-color: #68a2ca;
+		}
 	}
 }
