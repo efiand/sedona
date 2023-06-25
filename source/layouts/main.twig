@@ -5,12 +5,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>{{ projectName ~ ': ' ~ pageTitle}}</title>
 		<meta name="description" content="{{ description }}">
-		<link rel="stylesheet" href="{{ rootPath }}styles/main.css{{ version }}">
-		<link rel="icon" href="{{ rootPath }}/favicon-32x32.png" type="image/png" sizes="32x32">
 
 		{% for weight in [400, 700] %}
 			<link rel="preload" href="fonts/ptsans-{{ weight }}.woff2" as="font" crossorigin="anonymous">
 		{% endfor %}
+		<link rel="stylesheet" href="{{ rootPath }}styles/main.css{{ version }}">
+
+		<link rel="icon" href="{{ rootPath }}/favicon-32x32.png" type="image/png" sizes="32x32">
 	</head>
 	<body>
 		{{ app.page }}
