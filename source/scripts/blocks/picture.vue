@@ -1,9 +1,5 @@
 <template>
 	<picture>
-		<source
-			type="image/webp"
-			:srcset="`images/${fileName}.webp 1x, images/${fileName}@2x.webp 2x`"
-		/>
 		<img
 			:src="`images/${fileName}.${extName}`"
 			:srcset="`images/${fileName}@2x.${extName} 2x`"
@@ -32,7 +28,7 @@
 			},
 			extName: {
 				type: String,
-				default: 'jpg'
+				default: 'webp'
 			},
 			width: {
 				type: String,

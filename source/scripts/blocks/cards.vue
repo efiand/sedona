@@ -19,7 +19,6 @@
 				<PictureBlock
 					class="cards__picture"
 					:fileName="image.fileName"
-					:extName="image.extName"
 					:alt="image.alt"
 					:width="image.width"
 					:height="image.height"
